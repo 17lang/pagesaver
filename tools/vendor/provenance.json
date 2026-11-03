@@ -1,0 +1,54 @@
+[
+  {
+    "file": "lib/pdf-lib.min.js",
+    "package": "pdf-lib",
+    "version": "1.17.1",
+    "license": "MIT",
+    "officialPackage": "https://registry.npmjs.org/pdf-lib/-/pdf-lib-1.17.1.tgz",
+    "source": "https://github.com/Hopding/pdf-lib/tree/v1.17.1",
+    "sha256": "0f9a5cad07941f0826586c94e089d89b918c46e5c17cf2d5a3c6f666e3bc694f",
+    "comparison": "byte-identical"
+  },
+  {
+    "file": "lib/fontkit.umd.min.js",
+    "package": "@pdf-lib/fontkit",
+    "version": "1.1.1",
+    "license": "MIT",
+    "officialPackage": "https://registry.npmjs.org/@pdf-lib/fontkit/-/fontkit-1.1.1.tgz",
+    "source": "https://registry.npmjs.org/@pdf-lib/fontkit/-/fontkit-1.1.1.tgz",
+    "sha256": "d8df561b9fba98e24f2e5130e40948809281bbbc55a20c412359f1a0a5eb35a6",
+    "comparison": "byte-identical",
+    "readableSourceMember": "package/dist/fontkit.umd.js"
+  },
+  {
+    "file": "lib/html-to-image.js",
+    "package": "html-to-image",
+    "version": "1.11.11",
+    "license": "MIT",
+    "officialPackage": "https://registry.npmjs.org/html-to-image/-/html-to-image-1.11.11.tgz",
+    "source": "https://github.com/bubkoo/html-to-image/tree/v1.11.11",
+    "sha256": "0181b9a4ea3351540751b2e72b6baecb5c2297093fcb0bd2af94fc531cb0fbda",
+    "comparison": "byte-identical"
+  },
+  {
+    "file": "lib/defuddle-full.js",
+    "package": "defuddle",
+    "version": "0.19.6",
+    "license": "MIT",
+    "officialPackage": "https://registry.npmjs.org/defuddle/-/defuddle-0.19.6.tgz",
+    "source": "https://github.com/kepano/defuddle/tree/0.19.6",
+    "sha256": "3143d808ce2e7dd22b46d63eb9a71d4b920f55feba78aa3c195dce75b276df60",
+    "comparison": "byte-identical"
+  },
+  {
+    "file": "tools/vendor/single-file.orig.js",
+    "runtimeFile": "lib/single-file.js",
+    "package": "SingleFile",
+    "version": "1.33.0",
+    "license": "AGPL-3.0-or-later",
+    "officialPackage": "https://github.com/gildas-lormeau/SingleFile/releases/download/v1.33.0/singlefile-extension-firefox.zip",
+    "source": "https://github.com/gildas-lormeau/SingleFile/tree/v1.33.0",
+    "sha256": "8edcae7fb5e1edd07bf1348c1e621176a147957e7f773b3ccc3700b1dd23b5ae",
+    "comparison": "byte-identical; runtime only adds readable wrapper via tools/wrap-kernel.mjs"
+  }
+]

@@ -1,0 +1,8 @@
+.DS_Store
+analysis/
+*.xpi
+
+dist/
+__pycache__/
+node_modules/
+*.pyc

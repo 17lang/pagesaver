@@ -1,0 +1,285 @@
+/* Adapted from Obsidian Web Clipper src/styles/settings.scss (MIT).
+   Only save settings layout retained; native CSS nesting replaces Sass. */
+#settings-page {
+	--settings-background: var(--background-primary);
+	--settings-items-backgroud: var(--background-primary-alt);
+	body {
+		background-color: var(--settings-background);
+	}
+}
+
+#settings {
+	background-color: var(--settings-background);
+	margin: 0 auto;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#settings-container {
+	display: flex;
+	height: 100%;
+}
+#content {
+	flex-grow: 1;
+	overflow: scroll;
+}
+
+h2 {
+	margin-top: 0.5rem;
+	padding-inline-start: 1rem;
+}
+
+label {
+	font-weight: 400;
+}
+
+#navbar {
+	display: none;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 max(6%,20px);
+	height: 40px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	#navbar-title {
+		font-weight: 600;
+		font-size: var(--font-ui-medium);
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		svg {
+			height: 20px;
+		}
+	}
+}
+
+.settings-section {
+	display: none;
+	flex-direction: column;
+	gap: 8px;
+	margin: 24px max(6%, 24px) 72px max(6%, 24px);
+	max-width: 600px;
+
+	&.active {
+		display: block;
+	}
+}
+
+.settings-section-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.settings-section-actions {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+
+.setting-item-control {
+	display: flex;
+	align-items: center;
+}
+
+.setting-items {
+	background-color: var(--settings-items-backgroud);
+	border-radius: var(--radius-m);
+	corner-shape: var(--corner-shape);
+	padding: 0.75rem 1.5rem;
+
+	> .setting-item:not(.setting-item-heading) {
+		border-top: 1px solid var(--background-modifier-border);
+		&.is-hidden + .setting-item,
+		&:first-child {
+			border-top: none;
+		}
+	}
+}
+
+.setting-item {
+	margin: 0.75rem 0;
+
+	&.setting-item-heading {
+		margin: 2rem 0 0.75rem;
+	}
+	&:first-child {
+		border-top: none;
+	}
+
+	&:not(.mod-horizontal) {
+		label {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	&.mod-horizontal {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.75rem 0 0.75rem;
+		margin: 0;
+		&:first-child {
+			border-top: none;
+		}
+		+ .setting-item {
+			margin-top: 0;
+		}
+		.setting-item-description {
+			margin: 0.25rem 0;
+		}
+		.setting-item-info {
+			font-size: var(--font-ui-small);
+			label {
+				margin: 0;
+			}
+		}
+		button {
+			min-width: 4.5rem;
+		}
+		input[type="range"] {
+			flex: 1;
+			min-width: 0;
+		}
+		.slider-value {
+			font-size: var(--font-ui-smaller);
+			min-width: 1.5rem;
+			text-align: end;
+			font-variant: tabular-nums;
+		}
+	}
+}
+
+.setting-item-description {
+	color: var(--text-muted);
+	font-size: var(--font-ui-smallest);
+	margin: 0.25rem 0 0.75rem;
+	line-height: 1.3;
+	a {
+		color: var(--text-muted);
+		@media (hover: hover) {
+			&:hover {
+				color: var(--text-accent);
+			}
+		}
+	}
+	&:empty {
+		display: none;
+	}
+}
+
+
+/* Shared sidebar container and nav list styles — Obsidian Clipper MIT. */
+
+.sidebar {
+	width: 25%;
+	min-width: 200px;
+	max-width: 300px;
+	flex-shrink: 0;
+	overflow-y: auto;
+	background-color: var(--settings-background);
+	border-inline-end: 1px solid var(--background-modifier-border);
+}
+
+.nav-list {
+	font-size: var(--font-ui-small);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+
+	li {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		cursor: pointer;
+		padding: 0.25rem 0.425rem;
+		border-radius: var(--radius-s);
+		corner-shape: var(--corner-shape);
+		user-select: none;
+		-webkit-user-select: none;
+
+		svg {
+			width: 16px;
+			height: 16px;
+			flex-shrink: 0;
+			color: var(--text-muted);
+		}
+
+		span {
+			flex-grow: 1;
+			min-width: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background-color: var(--background-modifier-hover);
+			}
+		}
+
+		&.active {
+			background-color: var(--background-modifier-hover);
+			color: var(--text-normal);
+			svg {
+				color: var(--text-normal);
+			}
+		}
+	}
+}
+
+
+:root {
+  color-scheme: light dark;
+  --background-primary: #ffffff; --background-primary-alt: #f6f6f7;
+  --background-modifier-border: #dedee3; --text-muted: #62626e; --text-accent: #7055ba;
+  --font-ui-small: 14px; --font-ui-smallest: 13px; --radius-m: 10px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: #25252b; font: 15px/1.6 system-ui, sans-serif; }
+h1 { margin: 0; font-size: 24px; font-weight: 600; }
+#sidebar { width: 224px; flex: 0 0 224px; padding: 24px 16px; background: var(--background-primary-alt); border-right: 1px solid var(--background-modifier-border); }
+#settings-sidebar-title { display: flex; align-items: center; gap: 10px; margin: 0 8px 26px; font-size: 18px; font-weight: 600; }
+#settings-sidebar-title img { width: 28px; height: 28px; }
+#sidebar ul { list-style: none; margin: 0; padding: 0; }
+#sidebar li { margin: 5px 0; border-radius: 6px; }
+#sidebar li.active { background: #7055ba; color: white; }
+#sidebar button { display: block; width: 100%; padding: 10px 12px; text-align: left; border: 0; background: none; color: inherit; box-shadow: none; }
+#content { min-width: 0; }
+.settings-section { margin-bottom: 24px; }
+.setting-item label { display: block; margin-top: 12px; }
+input, select { display: block; width: 100%; max-width: 100%; padding: 9px 10px; border: 1px solid var(--background-modifier-border); border-radius: 6px; background: var(--background-primary); color: inherit; font: inherit; }
+button { padding: 8px 14px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: inherit; font: inherit; cursor: pointer; }
+button:disabled { opacity: .55; cursor: wait; }
+option:disabled { color: #888; }
+:focus-visible { outline: 2px solid var(--text-accent); outline-offset: 3px; }
+.mod-cta { background: #7055ba; color: white; border-color: #7055ba; }
+#refresh-vaults { margin-top: 12px; }
+#save-bar, #helper-info { margin: 0 max(6%, 24px) 24px; max-width: 600px; }
+#save-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+#helper-info { border-top: 1px solid var(--background-modifier-border); padding-top: 12px; font-size: 13px; color: var(--text-muted); }
+[hidden] { display: none !important; }
+@media (prefers-color-scheme: dark) {
+ :root { --background-primary: #202024; --background-primary-alt: #29292e; --background-modifier-border: #42424b; --text-muted: #b1b1bc; --text-accent: #b49bf2; }
+ body { color: #ededf1; }
+}
+@media (max-width: 640px) {
+ #settings-container { flex-direction: column; }
+ #sidebar { flex: 0 0 auto; width: 100%; padding: 12px; border-right: 0; border-bottom: 1px solid var(--background-modifier-border); }
+ #settings-sidebar-title { margin: 0 8px 10px; }
+ #sidebar ul { display: flex; gap: 4px; }
+ #sidebar button { padding: 8px; font-size: 13px; }
+ #content { overflow: auto; }
+}
+
+.helper-download { display: inline-block; padding: 8px 14px; border-radius: 6px; text-decoration: none; }

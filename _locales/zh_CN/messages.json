@@ -1,0 +1,662 @@
+{
+  "ui_8cee5115f32a": {
+    "message": "[pagesaver] 已安装 / 已更新"
+  },
+  "ui_1f993235b6a4": {
+    "message": "保存整页为单页 PDF"
+  },
+  "ui_1736a487f2d5": {
+    "message": "保存为完整 HTML 文件"
+  },
+  "ui_251e122b014d": {
+    "message": "找不到当前标签页"
+  },
+  "ui_fc062cfa696c": {
+    "message": "无法与页面通信：请确认这是普通网页（浏览器内部页 / AMO 页不允许扩展注入）"
+  },
+  "ui_99c9a2205727": {
+    "message": "background 里的 html-to-image 未加载"
+  },
+  "ui_3ca78227fb9d": {
+    "message": "渲染结果导出 PNG 失败"
+  },
+  "ui_49ec74ab77c5": {
+    "message": "截图数据解码失败"
+  },
+  "ui_0482985fe1d9": {
+    "message": "正在截图…"
+  },
+  "ui_8cf56435ee6a": {
+    "message": "页面准备失败："
+  },
+  "ui_a1a9da9ee6ed": {
+    "message": "未知原因"
+  },
+  "ui_3f69f99839ae": {
+    "message": "正在生成 PDF…"
+  },
+  "ui_61ac7c83a2ca": {
+    "message": "一张截图都没拿到"
+  },
+  "ui_7e16a5e0e4f3": {
+    "message": "导出图像失败"
+  },
+  "ui_80d89199d06a": {
+    "message": "中文字体读取失败：HTTP "
+  },
+  "ui_a3ced5e93e21": {
+    "message": "pdf-lib 未加载"
+  },
+  "ui_9d10e6e8d44e": {
+    "message": "没有图像数据"
+  },
+  "ui_e12c5a8144ac": {
+    "message": "FileReader 读取失败"
+  },
+  "ui_8b7f52f0dbb6": {
+    "message": "请求超时"
+  },
+  "ui_dcdb4404b121": {
+    "message": "fetch 失败："
+  },
+  "ui_1fd8511c4d2c": {
+    "message": "读取响应失败"
+  },
+  "ui_f67b2f4f0488": {
+    "message": "后台 XHR 不可用"
+  },
+  "ui_88c035ff99b6": {
+    "message": "网络错误"
+  },
+  "ui_9852a9ce3594": {
+    "message": "空响应"
+  },
+  "ui_8e626b043164": {
+    "message": "-完整.html"
+  },
+  "ui_f07335163e36": {
+    "message": "正在准备…"
+  },
+  "ui_956ed149ef11": {
+    "message": "-单页.pdf"
+  },
+  "ui_44caf2849ed2": {
+    "message": "没有收到图片数据"
+  },
+  "ui_13a46616e16f": {
+    "message": "未知错误"
+  },
+  "ui_e498787a1115": {
+    "message": "未处理的 Promise 异常："
+  },
+  "ui_3ee0addfb74a": {
+    "message": "overlay 未加载"
+  },
+  "ui_236907d5b06e": {
+    "message": "页面 fetch 不可用"
+  },
+  "ui_199dfacc58d8": {
+    "message": "后台代抓超时"
+  },
+  "ui_406900a91b27": {
+    "message": "frameFetch 超时"
+  },
+  "ui_a41d2c4ca0e9": {
+    "message": "frameFetch 失败"
+  },
+  "ui_493ca70a3a71": {
+    "message": "正在内联视频… ("
+  },
+  "ui_354180c53045": {
+    "message": "视频内联"
+  },
+  "ui_ed31fbb483ee": {
+    "message": "操作"
+  },
+  "ui_cfe64acbcc3e": {
+    "message": "超时（"
+  },
+  "ui_530334dbd6c3": {
+    "message": "个资源"
+  },
+  "ui_337fdce60b63": {
+    "message": "[Pagesaver] 内核未找到"
+  },
+  "ui_f4b39d9b4542": {
+    "message": "(无)"
+  },
+  "ui_dc1a3a2d194e": {
+    "message": "[Pagesaver] 内核未找到 —"
+  },
+  "ui_ab19feec8945": {
+    "message": "HTML 内核初始化失败："
+  },
+  "ui_5493c93cf49e": {
+    "message": "HTML 处理内核未加载"
+  },
+  "ui_5fcda15706ca": {
+    "message": "保存停滞超过 60 秒（"
+  },
+  "ui_1b5cc7f39f38": {
+    "message": "已处理 "
+  },
+  "ui_4385285b1ae2": {
+    "message": " 个资源"
+  },
+  "ui_6b6fa6770206": {
+    "message": "仍卡在预处理/懒加载阶段"
+  },
+  "ui_ac9b988cff68": {
+    "message": "）。可能是被墙的外部资源或页面常驻活动。"
+  },
+  "ui_89d1df657758": {
+    "message": "正在分析页面…"
+  },
+  "ui_5b72f94008a6": {
+    "message": "正在内联资源…"
+  },
+  "ui_dfec5551f5dc": {
+    "message": "正在生成 HTML 文件…"
+  },
+  "ui_7c64cb03b08f": {
+    "message": "内核没有返回 HTML 内容"
+  },
+  "ui_543df68b5f8b": {
+    "message": "正在写入文件…"
+  },
+  "ui_e2bc64d8b9d7": {
+    "message": "保存文件（请先检查目标文件夹，再决定是否重试）"
+  },
+  "ui_3461df8deb4d": {
+    "message": "保存失败，请重试。"
+  },
+  "ui_e8b7547ba51c": {
+    "message": "✅ 已保存完整 HTML："
+  },
+  "ui_6ade7baf8737": {
+    "message": "保存失败："
+  },
+  "ui_6b57377ccb3e": {
+    "message": "保存 HTML 失败："
+  },
+  "ui_797e76222eb3": {
+    "message": "Markdown 内核未加载（Defuddle）"
+  },
+  "ui_36319fedcc83": {
+    "message": "正在分析正文…"
+  },
+  "ui_bcce2b50846c": {
+    "message": "正文抽取"
+  },
+  "ui_7020562a62b2": {
+    "message": "✅ 已保存 Markdown："
+  },
+  "ui_121647ff38b4": {
+    "message": "保存 Markdown 失败："
+  },
+  "ui_629a187dd146": {
+    "message": "[Pagesaver] MARKDOWN_RUN 收到，当前 URL:"
+  },
+  "ui_a8dd39a0a6cf": {
+    "message": "屏"
+  },
+  "ui_9552fe3bd366": {
+    "message": "第 "
+  },
+  "ui_cb747e106663": {
+    "message": "页面里有资源加载失败（跨域图片 / iframe / 字体被拦截），已自动简化重试仍失败"
+  },
+  "ui_a1791229b274": {
+    "message": "html-to-image 未加载"
+  },
+  "ui_93a11c9ada3c": {
+    "message": "（初始化报错："
+  },
+  "ui_cc7c29ed42be": {
+    "message": "（content script 未注入？）"
+  },
+  "ui_0f5b9378e8e7": {
+    "message": "[just-one-page-pdf] 页面内渲染失败，改到扩展页面渲染（绕开站点 CSP）："
+  },
+  "ui_4fea61341cb2": {
+    "message": "序列化模块未加载，无法绕开网站 CSP 渲染"
+  },
+  "ui_0fc7ef88d1a2": {
+    "message": "页面序列化失败："
+  },
+  "ui_650ecab07391": {
+    "message": "无法让后台渲染（通信失败）："
+  },
+  "ui_126982202094": {
+    "message": "换到扩展页面渲染也失败了："
+  },
+  "ui_ad42eb8973a6": {
+    "message": "没有画布"
+  },
+  "ui_464b5e833cbc": {
+    "message": "pdf-client 未加载"
+  },
+  "ui_40346d713141": {
+    "message": "画布导出 PNG 失败"
+  },
+  "ui_97f5b973a4c9": {
+    "message": "✓ 截取此区域"
+  },
+  "ui_366c4cbc6d5f": {
+    "message": " px（按 Enter 或点按钮确认）"
+  },
+  "ui_31d09fc9102e": {
+    "message": "框选区域"
+  },
+  "ui_a5f64cb282fe": {
+    "message": "正在截图并生成 PDF…"
+  },
+  "ui_b14c0e5aa352": {
+    "message": "截取失败："
+  },
+  "ui_e469d7ff70dd": {
+    "message": "已截取："
+  },
+  "ui_a9814b532dad": {
+    "message": "　·　Node 框架选取"
+  },
+  "ui_c4fd663e126d": {
+    "message": "　·　Area 区域框选"
+  },
+  "ui_b925e724dab6": {
+    "message": "✅ 已生成并下载："
+  },
+  "ui_1ccd840ca8db": {
+    "message": "　（内含 "
+  },
+  "ui_0e12850bb95d": {
+    "message": " 条可搜索文字）"
+  },
+  "ui_5aa2555f06fa": {
+    "message": "（这张图还没有生成 PDF）"
+  },
+  "ui_89d72e71bfa0": {
+    "message": "下载预览图"
+  },
+  "ui_c90d30aca0ed": {
+    "message": "-选区.png"
+  },
+  "ui_3fd47edce45b": {
+    "message": "关闭"
+  },
+  "ui_87e7b5f5db19": {
+    "message": "移动鼠标选框架 · 滚轮 / Q W / ↑↓ 换层 · Shift+滚轮 可滚动页面 · 单击确认 · Esc 取消"
+  },
+  "ui_3e63181a4dca": {
+    "message": "按住鼠标拖出矩形 · Enter 或点「截取此区域」确认 · Shift+滚轮 可滚动页面 · Esc 取消"
+  },
+  "ui_510969f560df": {
+    "message": "正在截图并生成 PDF…（页面上会出现置灰进度条，请稍候）"
+  },
+  "ui_cfdcd1611998": {
+    "message": "生成失败："
+  },
+  "ui_95e8617030dd": {
+    "message": "（内含 "
+  },
+  "ui_742a5113cc39": {
+    "message": "（⚠️ 这次没写入文字层，PDF 里的字不可搜索）"
+  },
+  "ui_eabea83d2151": {
+    "message": "✅ 已下载："
+  },
+  "ui_6d399ca3b507": {
+    "message": "  文字层警告："
+  },
+  "ui_7e508bc7ae1c": {
+    "message": "页面 "
+  },
+  "ui_3537c06d5c06": {
+    "message": " px　·　图像 "
+  },
+  "ui_3fd2553f2612": {
+    "message": " 像素"
+  },
+  "ui_1a4e60391c93": {
+    "message": "（约 "
+  },
+  "ui_9d936f2e3725": {
+    "message": "　·　共 "
+  },
+  "ui_3d022a62a5a1": {
+    "message": " 屏"
+  },
+  "ui_6144c57df49a": {
+    "message": "（请确认是普通网页，非浏览器内部页/AMO 页）"
+  },
+  "ui_dd4cf1c391b3": {
+    "message": "正在启动选取…"
+  },
+  "ui_63b9f7d618dc": {
+    "message": "启动失败："
+  },
+  "ui_487254360080": {
+    "message": "正在保存完整 HTML…（页面会显示进度条）"
+  },
+  "ui_dd5f3a7e1fa2": {
+    "message": "（请确认是普通网页）"
+  },
+  "ui_fa7f288f98ad": {
+    "message": "正在抽取正文并转 Markdown…（页面会显示进度条）"
+  },
+  "ui_afc9b8992aea": {
+    "message": "选一个方式开始。"
+  },
+  "ui_0451ecab35a0": {
+    "message": "请选择保存位置。"
+  },
+  "ui_ab9dd17bdc0a": {
+    "message": "不支持这种文件。"
+  },
+  "ui_88cf49959922": {
+    "message": "请先设置 Markdown 保存位置。"
+  },
+  "ui_5d123cd3a476": {
+    "message": "请输入完整的文件夹路径。"
+  },
+  "ui_adc31e99edb4": {
+    "message": "请选择仓库，并填写仓库内的文件夹。"
+  },
+  "ui_2fb552ec7e00": {
+    "message": "无法连接保存工具，请先安装或重新安装。"
+  },
+  "ui_76259d10ca55": {
+    "message": "保存工具响应超时，请先检查目标文件夹。"
+  },
+  "ui_44f345504327": {
+    "message": "已选仓库（请刷新确认）"
+  },
+  "ui_3b6b54061cd2": {
+    "message": "请选择仓库"
+  },
+  "ui_d93194542b2e": {
+    "message": "原仓库已不可用，请重新选择"
+  },
+  "ui_598a2dc0c6b9": {
+    "message": "未找到仓库，请先用 Obsidian 打开一次仓库。"
+  },
+  "ui_520b00e114f7": {
+    "message": "尚未保存"
+  },
+  "ui_5be0323e8adc": {
+    "message": "已连接"
+  },
+  "ui_6503e4a9ba63": {
+    "message": "正在检查保存位置…"
+  },
+  "ui_1bd91a7d0c53": {
+    "message": "已保存"
+  },
+  "ui_243f0add630c": {
+    "message": "其他设置页已更新位置；重新打开本页可载入。"
+  },
+  "ui_571562d35bfd": {
+    "message": "无法读取 Obsidian 仓库，请检查访问权限。"
+  },
+  "ui_ea7b6c1fd4ec": {
+    "message": "无法读取 Obsidian 仓库配置。"
+  },
+  "ui_aeae9f2028fa": {
+    "message": "找不到这个仓库，请重新选择。"
+  },
+  "ui_41169e64bc39": {
+    "message": "请填写仓库内的相对路径。"
+  },
+  "ui_ee00a31f552e": {
+    "message": "保存位置不能超出仓库。"
+  },
+  "ui_a2d6979ca522": {
+    "message": "仓库文件夹不存在或无法访问。"
+  },
+  "ui_c77065bb3beb": {
+    "message": "无法创建保存文件夹，请检查访问权限。"
+  },
+  "ui_f471ca8f26db": {
+    "message": "无法访问保存文件夹。"
+  },
+  "ui_3bbaa1118587": {
+    "message": "文件夹路径无效。"
+  },
+  "ui_cddd77aa11f8": {
+    "message": "文件夹不存在或无法访问，请检查路径。"
+  },
+  "ui_e6ccdc66ed80": {
+    "message": "无法写入这个文件夹，请检查访问权限。"
+  },
+  "ui_5921e3dbde34": {
+    "message": "已有保存正在进行。"
+  },
+  "ui_8d76614497eb": {
+    "message": "文件太大，请选择较小的页面。"
+  },
+  "ui_db2f7ed3716c": {
+    "message": "文件名无效。"
+  },
+  "ui_2c7a19f4c3c7": {
+    "message": "保存尚未开始。"
+  },
+  "ui_7610c855bd68": {
+    "message": "文件传输不完整，请重试。"
+  },
+  "ui_dfd525c33c1e": {
+    "message": "写入失败，请检查剩余空间和访问权限。"
+  },
+  "ui_7608e0ed9f2a": {
+    "message": "文件未能完整写入，请检查剩余空间。"
+  },
+  "ui_6407613cf967": {
+    "message": "文件未能完整写入。"
+  },
+  "ui_84e62af989a8": {
+    "message": "无法完成保存，请检查文件夹权限及磁盘是否支持硬链接。"
+  },
+  "ui_4c3bfb7bf6dd": {
+    "message": "同名文件太多，请换一个文件名。"
+  },
+  "ui_035c57213796": {
+    "message": "不支持这个操作。"
+  },
+  "ui_04741d73ac7a": {
+    "message": "无法读取保存请求。"
+  },
+  "ui_df3d58c7d84b": {
+    "message": "设置"
+  },
+  "ui_44a8051d39b7": {
+    "message": "Pagesaver 设置"
+  },
+  "ui_dfb699c54378": {
+    "message": "设置分类"
+  },
+  "ui_766fd5605a05": {
+    "message": "Markdown 设置"
+  },
+  "ui_3149d80b780e": {
+    "message": "PDF 设置"
+  },
+  "ui_8d3563abf0f6": {
+    "message": "HTML 设置"
+  },
+  "ui_22939a4ebb0b": {
+    "message": "默认保存位置"
+  },
+  "ui_88f6fc489aa1": {
+    "message": "尚未设置"
+  },
+  "ui_9bedd6219651": {
+    "message": "指定文件夹"
+  },
+  "ui_6add2e4ca582": {
+    "message": "Obsidian 仓库"
+  },
+  "ui_a13cda8c3b96": {
+    "message": "文件夹完整路径"
+  },
+  "ui_4b71a31a86b1": {
+    "message": "/Users/你的用户名/Documents/网页"
+  },
+  "ui_89b2ecbe1f09": {
+    "message": "仓库"
+  },
+  "ui_dbf40812344e": {
+    "message": "从本机 Obsidian 已登记的仓库中选择。"
+  },
+  "ui_d676f7fb254b": {
+    "message": "刷新仓库"
+  },
+  "ui_5ebf371faba8": {
+    "message": "仓库内文件夹"
+  },
+  "ui_298a22d4130f": {
+    "message": "留空保存到仓库根目录。"
+  },
+  "ui_a95d2f1520e3": {
+    "message": "和 Obsidian 的笔记位置相同"
+  },
+  "ui_368e319a3254": {
+    "message": "请先保存 Markdown 的位置设置。"
+  },
+  "ui_c8550237ba70": {
+    "message": "保存设置"
+  },
+  "ui_dcd26b174153": {
+    "message": "指定文件夹保存需要安装 Pagesaver 保存工具。"
+  },
+  "ui_9fada042cf88": {
+    "message": "检查连接"
+  },
+  "ui_596e6bcf5151": {
+    "message": "未设置的格式仍保存到浏览器下载位置。重名文件自动编号，不覆盖原文件。"
+  },
+  "ui_e665c39849c4": {
+    "message": "整页 · 一张长图（单页 PDF）"
+  },
+  "ui_eba488b1f92e": {
+    "message": "整页预览"
+  },
+  "ui_552a4dbb14c1": {
+    "message": "直接生成整页 PDF"
+  },
+  "ui_441208e308ed": {
+    "message": "选取局部 · 自动避开悬浮浮层"
+  },
+  "ui_9f81db4cf6c9": {
+    "message": "① 选取框架"
+  },
+  "ui_32a74192876b": {
+    "message": "② 框选区域"
+  },
+  "ui_42b5c5503d93": {
+    "message": "网页存档 · 单个 HTML 文件"
+  },
+  "ui_76636b1f4949": {
+    "message": "阅读存档 · 单个 Markdown 文件"
+  },
+  "ui_5369f327c84a": {
+    "message": "保存为 Markdown 文件"
+  },
+  "ui_4cb5010a492a": {
+    "message": "可在设置中选择保存位置。"
+  },
+  "ui_09854e9a45b0": {
+    "message": "① 鼠标移到内容上，红框自动套住整块内容；滚轮 / Q W 可换成更小或更大的层，单击确认。"
+  },
+  "ui_0e06865148a9": {
+    "message": "② 按住鼠标拖动出一个矩形，Enter 或点「截取此区域」确认。"
+  },
+  "ui_6bb2d502639a": {
+    "message": "确认后只截取选中范围，自动生成单页 PDF 并下载。"
+  },
+  "ui_cf170c465eba": {
+    "message": "把整页连同图片、字体、样式全部内嵌进一个 .html，断网双击也能原样打开。"
+  },
+  "ui_2dbe176cdaef": {
+    "message": "保存时页面会显示和生成 PDF 一致的进度条，完成后自动下载。"
+  },
+  "ui_43452f114576": {
+    "message": "只保留文章正文，转成 .md 文件（去掉导航、广告、页脚）。断网也能在任意 Markdown 编辑器里看。"
+  },
+  "ui_c091262530cb": {
+    "message": "将网页保存为 PDF、完整 HTML 或 Markdown，可分别设置保存位置。"
+  },
+  "ui_a3c40646b7e6": {
+    "message": "Pagesaver · 保存网页"
+  },
+  "ui_97f0b251ced8": {
+    "message": "保存工具还没连上。请按下方步骤安装。"
+  },
+  "ui_61a869d1043d": {
+    "message": "首次使用或换电脑时，请在这台电脑安装一次保存工具。"
+  },
+  "ui_50091943a205": {
+    "message": "下载并解压完整安装包。"
+  },
+  "ui_f980e04c48e8": {
+    "message": "在 Mac 上，双击“安装保存工具.command”。"
+  },
+  "ui_74e02c704590": {
+    "message": "回到本页，点击“检查连接”，再点击“刷新仓库”。"
+  },
+  "ui_f30d56ed84ea": {
+    "message": "保存工具只负责把网页写入本机文件夹，不会上传到云端。"
+  },
+  "ui_bef61679d4fa": {
+    "message": "查看安装步骤"
+  },
+  "ui_57c63553cdd6": {
+    "message": "浏览器下载文件夹（无需安装工具）"
+  },
+  "ui_8e8fc0f5d52f": {
+    "message": "交给 Obsidian（无需安装工具）"
+  },
+  "ui_a78debf1dc61": {
+    "message": "指定文件夹（需保存工具）"
+  },
+  "ui_60ba61565ef8": {
+    "message": "Obsidian 文件夹（需保存工具）"
+  },
+  "ui_ead507424738": {
+    "message": "仓库名称"
+  },
+  "ui_a0980afff74b": {
+    "message": "与 Obsidian 中的名称一致；留空使用当前仓库。"
+  },
+  "ui_4652571e98bb": {
+    "message": "保存时会复制正文并打开 Obsidian。请在 Obsidian 中确认保存结果。"
+  },
+  "ui_fff3a1f3954a": {
+    "message": "只有指定本机文件夹或跟随其位置时，才需要安装保存工具。"
+  },
+  "ui_8a5ecc05deed": {
+    "message": "跟随前，请先保存 Markdown 位置；直接交给 Obsidian 时需填写仓库名称。"
+  },
+  "ui_648e42318c16": {
+    "message": "请填写仓库名称，才能让 PDF/HTML 跟随。"
+  },
+  "ui_ecff1a1ff276": {
+    "message": "找到多个同名仓库，请改用指定文件夹。"
+  },
+  "ui_cb511d888d6f": {
+    "message": "无法复制正文。请改用浏览器下载方式。"
+  },
+  "ui_0af815f36da7": {
+    "message": "已交给 Obsidian，请在 Obsidian 中确认。"
+  },
+  "ui_c34bb62fd90c": {
+    "message": "仓库名称不能包含换行。"
+  },
+  "ui_e493bdaf0a89": {
+    "message": "下载 Mac 保存工具"
+  },
+  "ui_0bb8d07c4719": {
+    "message": "适用于 Apple 芯片和 Intel Mac。每台电脑只需安装一次。"
+  },
+  "ui_eaa32649a763": {
+    "message": "点击上方按钮下载，解压安装包。"
+  }
+}

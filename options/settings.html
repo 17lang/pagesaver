@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Save-only adaptation of Obsidian Web Clipper src/settings.html (MIT). -->
+<html lang="zh-CN" id="settings-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagesaver 设置</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div id="settings"><div id="settings-container">
+    <nav id="sidebar" class="sidebar" aria-label="设置分类" data-i18n-aria-label="ui_dfb699c54378">
+      <div id="settings-sidebar-title"><img src="../icons/icon32.png" alt="">Pagesaver</div>
+      <ul>
+        <li data-section="markdown"><button type="button">Markdown 设置</button></li>
+        <li data-section="pdf"><button type="button">PDF 设置</button></li>
+        <li data-section="html"><button type="button">HTML 设置</button></li>
+      </ul>
+    </nav>
+    <main id="content">
+      <form id="save-settings-form">
+        <section id="markdown-section" class="settings-section">
+          <div class="settings-section-header"><h1>Markdown 设置</h1></div>
+          <div class="setting-items">
+            <div class="setting-item">
+              <label for="markdown-mode">默认保存位置</label>
+              <select id="markdown-mode">
+                <option value="default">浏览器下载文件夹（无需安装工具）</option>
+                <option value="absolute">指定文件夹（需保存工具）</option>
+                <option value="obsidian">交给 Obsidian（无需安装工具）</option>
+                <option value="vault">Obsidian 文件夹（需保存工具）</option>
+              </select>
+            </div>
+            <div class="setting-item" id="markdown-absolute">
+              <label for="markdown-path">文件夹完整路径</label>
+              <input id="markdown-path" type="text" spellcheck="false" placeholder="/Users/你的用户名/Documents/网页" data-i18n-placeholder="ui_4b71a31a86b1">
+            </div>
+            <div id="markdown-obsidian-fields" hidden>
+              <div class="setting-item"><label for="obsidian-vault-name">仓库名称</label>
+                <input id="obsidian-vault-name" type="text" spellcheck="false">
+                <p class="setting-item-description">与 Obsidian 中的名称一致；留空使用当前仓库。</p>
+                <p class="setting-item-description">保存时会复制正文并打开 Obsidian。请在 Obsidian 中确认保存结果。</p>
+              </div>
+            </div>
+            <div id="markdown-vault-fields">
+              <div class="setting-item">
+                <label for="template-vault">仓库</label>
+                <div class="setting-item-description">从本机 Obsidian 已登记的仓库中选择。</div>
+                <select id="template-vault"><option value="">请选择仓库</option></select>
+                <button id="refresh-vaults" type="button">刷新仓库</button>
+                <p id="vault-status" class="setting-item-description" role="status"></p>
+                <a id="vault-install-help" href="#helper-info" hidden>查看安装步骤</a>
+              </div>
+
+            </div>
+            <div id="markdown-note-folder">
+              <div class="setting-item" id="path-name-container">
+                <label for="template-path-name">仓库内文件夹</label>
+                <input id="template-path-name" type="text" placeholder="Clippings" spellcheck="false">
+                <div class="setting-item-description">留空保存到仓库根目录。</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="pdf-section" class="settings-section">
+          <div class="settings-section-header"><h1>PDF 设置</h1></div>
+          <div class="setting-items"><div class="setting-item">
+            <label for="pdf-mode">默认保存位置</label>
+            <select id="pdf-mode">
+              <option value="default">浏览器下载文件夹（无需安装工具）</option>
+              <option value="absolute">指定文件夹（需保存工具）</option>
+              <option value="markdown">和 Obsidian 的笔记位置相同</option>
+            </select>
+            <p id="pdf-follow-hint" class="setting-item-description">跟随前，请先保存 Markdown 位置；直接交给 Obsidian 时需填写仓库名称。</p>
+            <div id="pdf-absolute"><label for="pdf-path">文件夹完整路径</label>
+              <input id="pdf-path" type="text" spellcheck="false" placeholder="/Users/你的用户名/Documents/网页" data-i18n-placeholder="ui_4b71a31a86b1">
+            </div>
+          </div></div>
+        </section>
+        <section id="html-section" class="settings-section">
+          <div class="settings-section-header"><h1>HTML 设置</h1></div>
+          <div class="setting-items"><div class="setting-item">
+            <label for="html-mode">默认保存位置</label>
+            <select id="html-mode">
+              <option value="default">浏览器下载文件夹（无需安装工具）</option>
+              <option value="absolute">指定文件夹（需保存工具）</option>
+              <option value="markdown">和 Obsidian 的笔记位置相同</option>
+            </select>
+            <p id="html-follow-hint" class="setting-item-description">跟随前，请先保存 Markdown 位置；直接交给 Obsidian 时需填写仓库名称。</p>
+            <div id="html-absolute"><label for="html-path">文件夹完整路径</label>
+              <input id="html-path" type="text" spellcheck="false" placeholder="/Users/你的用户名/Documents/网页" data-i18n-placeholder="ui_4b71a31a86b1">
+            </div>
+          </div></div>
+        </section>
+        <div id="save-bar"><button type="submit" id="save-settings" class="mod-cta">保存设置</button>
+          <span id="settings-status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+      <aside id="helper-info" hidden>
+        <p>只有指定本机文件夹或跟随其位置时，才需要安装保存工具。</p>
+        <p><a id="download-helper" class="mod-cta helper-download" href="https://github.com/17lang/pagesaver/releases/latest/download/pagesaver-save-macos.zip" target="_blank" rel="noopener noreferrer">下载 Mac 保存工具</a></p>
+        <p class="setting-item-description">适用于 Apple 芯片和 Intel Mac。每台电脑只需安装一次。</p>
+        <ol id="helper-install-steps">
+          <li>点击上方按钮下载，解压安装包。</li>
+          <li>在 Mac 上，双击“安装保存工具.command”。</li>
+          <li>回到本页，点击“检查连接”，再点击“刷新仓库”。</li>
+        </ol>
+        <p>保存工具只负责把网页写入本机文件夹，不会上传到云端。</p>
+        <button id="check-helper" type="button">检查连接</button>
+        <span id="helper-status" role="status"></span>
+        <p class="setting-item-description">未设置的格式仍保存到浏览器下载位置。重名文件自动编号，不覆盖原文件。</p>
+      </aside>
+    </main>
+  </div></div>
+  <script src="../i18n.js"></script>
+  <script src="destinations.js"></script>
+  <script src="native-save.js"></script>
+  <script src="settings-section-ui.js"></script>
+  <script src="obsidian-save.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

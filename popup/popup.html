@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 360px; margin: 0; padding: 12px; font: 13px/1.5 system-ui, -apple-system, sans-serif; color: #222; }
+    h4 { margin: 0 0 6px; font-size: 12px; font-weight: 500; color: #666; }
+    .popup-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+    .popup-header h4 { margin: 0; }
+    #open-settings { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 28px; width: 28px; height: 28px; margin: -4px -4px -4px 0; padding: 4px; border: 0; border-radius: 5px; background: transparent; color: #666; cursor: pointer; }
+    #open-settings:hover { background: #eee; color: #222; }
+    #open-settings:focus-visible { outline: 2px solid #2f6feb; outline-offset: 2px; }
+    .sec { margin-bottom: 16px; }
+    .sec + .sec { border-top: 1px solid #e5e5e5; padding-top: 12px; }
+    #preview { width: 100%; border: 1px solid #ccc; background: #f7f7f7; min-height: 60px; display: none; }
+    #info { color: #666; margin-top: 8px; font-size: 12px; }
+    #status { margin-top: 6px; color: #0a7d3b; font-size: 12px; min-height: 16px; }
+    .row { display: flex; gap: 8px; margin-top: 8px; }
+    button { padding: 6px 10px; font-size: 13px; }
+    .pick { flex: 1; background: #2f6feb; color: #fff; border: none; border-radius: 6px; }
+    .pick2 { flex: 1; background: #ff4d4f; color: #fff; border: none; border-radius: 6px; }
+    .pickhtml { flex: 1; background: #0a7d3b; color: #fff; border: none; border-radius: 6px; padding: 7px 10px; font-size: 13px; cursor: pointer; }
+    .pickhtml:hover { background: #086a32; }
+    .pickmd { flex: 1; background: #6b46c1; color: #fff; border: none; border-radius: 6px; padding: 7px 10px; font-size: 13px; cursor: pointer; }
+    .pickmd:hover { background: #5a3aa0; }
+    .hint { margin-top: 8px; font-size: 12px; color: #888; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="sec">
+    <div class="popup-header">
+      <h4>整页 · 一张长图（单页 PDF）</h4>
+      <button id="open-settings" type="button" title="设置" aria-label="设置" data-i18n-title="ui_df3d58c7d84b" data-i18n-aria-label="ui_df3d58c7d84b">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3">
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.08A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.08A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15z">
+        </svg>
+      </button>
+    </div>
+    <img id="preview" alt="整页预览" data-i18n-alt="ui_eba488b1f92e">
+    <div id="info">—</div>
+    <div id="status"></div>
+    <div class="row">
+      <button id="pdf" class="pick">直接生成整页 PDF</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h4>选取局部 · 自动避开悬浮浮层</h4>
+    <div class="row">
+      <button id="pick-node" class="pick">① 选取框架</button>
+      <button id="pick-area" class="pick2">② 框选区域</button>
+    </div>
+    <div class="hint">
+      ① 鼠标移到内容上，红框自动套住整块内容；滚轮 / Q W 可换成更小或更大的层，单击确认。<br>
+      ② 按住鼠标拖动出一个矩形，Enter 或点「截取此区域」确认。<br>
+      确认后只截取选中范围，自动生成单页 PDF 并下载。
+    </div>
+  </div>
+
+  <div class="sec">
+    <h4>网页存档 · 单个 HTML 文件</h4>
+    <div class="row">
+      <button id="save-html" class="pickhtml">保存为完整 HTML 文件</button>
+    </div>
+    <div class="hint">
+      把整页连同图片、字体、样式全部内嵌进一个 .html，断网双击也能原样打开。<br>
+      保存时页面会显示和生成 PDF 一致的进度条，完成后自动下载。
+    </div>
+  </div>
+
+  <div class="sec">
+    <h4>阅读存档 · 单个 Markdown 文件</h4>
+    <div class="row">
+      <button id="save-md" class="pickmd">保存为 Markdown 文件</button>
+    </div>
+    <div class="hint">
+      只保留文章正文，转成 .md 文件（去掉导航、广告、页脚）。断网也能在任意 Markdown 编辑器里看。<br>
+      可在设置中选择保存位置。
+    </div>
+  </div>
+
+  <script src="../i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

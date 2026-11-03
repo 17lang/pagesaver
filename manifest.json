@@ -1,0 +1,88 @@
+{
+  "manifest_version": 2,
+  "name": "Pagesaver",
+  "version": "0.6.0",
+  "description": "__MSG_ui_c091262530cb__",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "downloads",
+    "menus",
+    "<all_urls>",
+    "nativeMessaging",
+    "clipboardWrite"
+  ],
+  "background": {
+    "scripts": [
+      "i18n.js",
+      "lib/pdf-lib.min.js",
+      "lib/fontkit.umd.min.js",
+      "lib/html-to-image.iife.js",
+      "options/destinations.js",
+      "options/native-save.js",
+      "options/obsidian-save.js",
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "i18n.js",
+        "content/00-boot.js",
+        "lib/html-to-image.iife.js",
+        "content/overlay.js",
+        "content/serialize.js",
+        "content/pdfclient.js",
+        "content/textlayer.js",
+        "content/capture.js",
+        "content/picker.js",
+        "lib/single-file.js",
+        "lib/defuddle-full.js",
+        "content/htmlsave.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "__MSG_ui_a3c40646b7e6__",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "64": "icons/icon64.png",
+      "96": "icons/icon96.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "64": "icons/icon64.png",
+    "96": "icons/icon96.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pagesaver@pagesaver.local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteContent",
+          "browsingActivity"
+        ]
+      }
+    }
+  },
+  "options_ui": {
+    "page": "options/settings.html",
+    "open_in_tab": true
+  },
+  "default_locale": "en"
+}

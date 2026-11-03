@@ -1,0 +1,48 @@
+# Pagesaver 实现说明
+
+修订：1；适用版本：0.6.0；日期：2026-11-03。
+
+## 保存与界面
+
+产品与交互见 README / README.zh-CN.md；验证见 VERIFICATION.md。
+
+- `popup/`：三格式入口、选区操作、右上角设置齿轮。
+- `options/settings.*`：沿用 Clipper 的保存设置侧栏；只保留 Markdown/PDF/HTML。
+- `_locales/{en,zh_CN,zh_TW}/messages.json` 与 `i18n.js`：Firefox 标准 i18n；英文默认，中文浏览器使用中文。只翻译扩展自己的页面、提示和菜单，绝不改写用户网页或待保存正文。原生工具返回的稳定错误在浏览器侧翻译。
+- `content/`：页面截图准备、选区、文字提取、HTML/Markdown 引擎调用、保存进度。扩展浮层在截图前隐藏。
+- `background.js`：浏览器截图拼接、pdf-lib 单页 PDF、原生/浏览器下载分流。非常驻后台，配置在 storage.local。
+
+产品入口与体验：[开始使用](../README.zh-CN.md#开始使用)。
+
+## 三条保存路线
+
+`options/destinations.js` 存三种独立目标，沿用原 storage key。旧版 absolute/vault/markdown 配置保留；新增 markdown.obsidian 与 vaultName，不自动迁移或覆盖旧路径。
+
+1. `default`：浏览器下载 API，三格式无需保存工具。重名使用浏览器 uniquify。
+2. Markdown `obsidian`：`options/obsidian-save.js` 复用 MIT Clipper 的 new-note URI、仓库、相对路径和剪贴板写入逻辑。剪贴板放全文，URI 不携带长正文；不设置 overwrite/append。不引入模板、统计、高亮、阅读器或解释器。后台返回 handedOff，页面提示要求在 Obsidian 确认。剪贴板失败不触发空笔记，不伪报保存完成。
+3. `absolute` 或旧 `vault`：按需连接本机保存工具。PDF/HTML 跟随 Markdown 时解析当前配置；若 Markdown 为直接 Obsidian 模式，需先填写仓库名称，之后通过工具读取实际仓库目录。发现同名仓库拒绝猜测，要求指定路径。
+
+设置只在保存后解锁跟随；直接 Obsidian 可以使用当前仓库，但未填写仓库名称时不能让 PDF/HTML 跟随，因为扩展不知道当前仓库的磁盘位置。保存配置时对原生目标检查路径和写入权限；直接 Obsidian 只检查名称/相对路径语法，不调用工具。
+
+默认设置和直接 Obsidian 不主动查仓库或连接工具。高级设置才显示安装步骤及直接下载链接：
+`https://github.com/17lang/pagesaver/releases/latest/download/pagesaver-save-macos.zip`。
+
+交接方式的产品说明：[Markdown 直接交给 Obsidian](../README.zh-CN.md#直接交给笔记)。
+
+## 本机工具
+
+`tools/native-helper/` 使用 Go 标准库，通过浏览器 Native Messaging 的长度前缀 JSON 工作，不监听网络、不安装常驻服务。固定扩展 ID 为 `pagesaver@pagesaver.local`，工具名为 `app.pagesaver.save`。
+
+协议：ping/vaults/check/begin/chunk/commit。192 KiB 原始块，512 MiB 文件上限；校验完整字节数后同步临时文件，再通过不覆盖的硬链接发布，重名编号。断连清理未发布临时文件。仓库目录拒绝 `..` 和符号链接越界；不承诺抵抗拥有本机目录写权限的恶意并发进程。
+
+每台电脑安装一次，不能把另一台电脑的登记或仓库 ID 当作当前机器的配置。核心代码跨平台，当前安装包及运行验收以 macOS 为范围；其他系统源码提供但未验收。
+
+## 构建与发布
+
+`tools/package-extension.py` 只打包运行文件，固定 ZIP 顺序与时间戳，不包含测试网页、开发工具、用户文件或个人接手记录。`tools/build-release.py` 复用它构建完整 macOS 包，源码包采用明确公开清单。
+
+第三方原件核验见 tools/vendor/provenance.json；许可见 THIRD_PARTY_NOTICES.md。Firefox 市场材料和政策链接见 FIREFOX-PUBLISHING.md。签名、商店审核、代码公开与实际用户验收分别记录。
+
+## 发布前检查
+
+0.6.0 运行包通过 web-ext 预检：0 错误、10 条警告。警告涉及桌面与 Android 数据声明版本差异、原样第三方库的 innerHTML / import / eval；Android 不在申报范围，第三方原件和来源可由 Mozilla 审核。未放宽 CSP 或启用 unsafe-eval。两次固定打包结果逐字节一致。

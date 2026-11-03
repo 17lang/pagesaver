@@ -1,0 +1,662 @@
+{
+  "ui_8cee5115f32a": {
+    "message": "[pagesaver] Installed / updated"
+  },
+  "ui_1f993235b6a4": {
+    "message": "Save page as single-page PDF"
+  },
+  "ui_1736a487f2d5": {
+    "message": "Save as complete HTML"
+  },
+  "ui_251e122b014d": {
+    "message": "No active tab found."
+  },
+  "ui_fc062cfa696c": {
+    "message": "Cannot access this page. Open a regular website; browser pages and AMO are restricted."
+  },
+  "ui_99c9a2205727": {
+    "message": "Page renderer is unavailable. Reload the extension."
+  },
+  "ui_3ca78227fb9d": {
+    "message": "Could not export the rendered image."
+  },
+  "ui_49ec74ab77c5": {
+    "message": "Could not read the screenshot."
+  },
+  "ui_0482985fe1d9": {
+    "message": "Capturing…"
+  },
+  "ui_8cf56435ee6a": {
+    "message": "Could not prepare the page: "
+  },
+  "ui_a1a9da9ee6ed": {
+    "message": "Unknown cause"
+  },
+  "ui_3f69f99839ae": {
+    "message": "Creating PDF…"
+  },
+  "ui_61ac7c83a2ca": {
+    "message": "No screenshots were captured."
+  },
+  "ui_7e16a5e0e4f3": {
+    "message": "Could not export the image."
+  },
+  "ui_80d89199d06a": {
+    "message": "Could not load the PDF font: HTTP "
+  },
+  "ui_a3ced5e93e21": {
+    "message": "PDF writer is unavailable. Reload the extension."
+  },
+  "ui_9d10e6e8d44e": {
+    "message": "No image data received."
+  },
+  "ui_e12c5a8144ac": {
+    "message": "Could not read the file."
+  },
+  "ui_8b7f52f0dbb6": {
+    "message": "Request timed out."
+  },
+  "ui_dcdb4404b121": {
+    "message": "Could not load the resource: "
+  },
+  "ui_1fd8511c4d2c": {
+    "message": "Could not read the response."
+  },
+  "ui_f67b2f4f0488": {
+    "message": "Resource loader is unavailable."
+  },
+  "ui_88c035ff99b6": {
+    "message": "Network error"
+  },
+  "ui_9852a9ce3594": {
+    "message": "Empty response"
+  },
+  "ui_8e626b043164": {
+    "message": "-complete.html"
+  },
+  "ui_f07335163e36": {
+    "message": "Preparing…"
+  },
+  "ui_956ed149ef11": {
+    "message": "-single-page.pdf"
+  },
+  "ui_44caf2849ed2": {
+    "message": "No image data received."
+  },
+  "ui_13a46616e16f": {
+    "message": "Unknown error"
+  },
+  "ui_e498787a1115": {
+    "message": "Unexpected error: "
+  },
+  "ui_3ee0addfb74a": {
+    "message": "Progress display is unavailable. Refresh the page."
+  },
+  "ui_236907d5b06e": {
+    "message": "This page cannot load resources."
+  },
+  "ui_199dfacc58d8": {
+    "message": "Resource request timed out."
+  },
+  "ui_406900a91b27": {
+    "message": "Frame request timed out."
+  },
+  "ui_a41d2c4ca0e9": {
+    "message": "Frame request failed."
+  },
+  "ui_493ca70a3a71": {
+    "message": "Embedding videos… ("
+  },
+  "ui_354180c53045": {
+    "message": "Video embedding"
+  },
+  "ui_ed31fbb483ee": {
+    "message": "Operation"
+  },
+  "ui_cfe64acbcc3e": {
+    "message": " timed out ("
+  },
+  "ui_530334dbd6c3": {
+    "message": "resources"
+  },
+  "ui_337fdce60b63": {
+    "message": "[Pagesaver] HTML engine unavailable"
+  },
+  "ui_f4b39d9b4542": {
+    "message": "(none)"
+  },
+  "ui_dc1a3a2d194e": {
+    "message": "[Pagesaver] HTML engine unavailable —"
+  },
+  "ui_ab19feec8945": {
+    "message": "Could not start HTML saving: "
+  },
+  "ui_5493c93cf49e": {
+    "message": "HTML saving is unavailable. Refresh the page."
+  },
+  "ui_5fcda15706ca": {
+    "message": "Saving has stalled for over 60 seconds ("
+  },
+  "ui_1b5cc7f39f38": {
+    "message": "processed "
+  },
+  "ui_4385285b1ae2": {
+    "message": " resources"
+  },
+  "ui_6b6fa6770206": {
+    "message": "still preparing page content"
+  },
+  "ui_ac9b988cff68": {
+    "message": "). Some resources may be unreachable or the page may still be updating."
+  },
+  "ui_89d1df657758": {
+    "message": "Analyzing page…"
+  },
+  "ui_5b72f94008a6": {
+    "message": "Embedding resources…"
+  },
+  "ui_dfec5551f5dc": {
+    "message": "Creating HTML file…"
+  },
+  "ui_7c64cb03b08f": {
+    "message": "No HTML content was returned."
+  },
+  "ui_543df68b5f8b": {
+    "message": "Saving file…"
+  },
+  "ui_e2bc64d8b9d7": {
+    "message": "Saving file (check the destination folder before retrying)"
+  },
+  "ui_3461df8deb4d": {
+    "message": "Could not save the file. Please try again."
+  },
+  "ui_e8b7547ba51c": {
+    "message": "✅ Saved complete HTML: "
+  },
+  "ui_6ade7baf8737": {
+    "message": "Could not save: "
+  },
+  "ui_6b57377ccb3e": {
+    "message": "Could not save HTML: "
+  },
+  "ui_797e76222eb3": {
+    "message": "Markdown saving is unavailable. Refresh the page."
+  },
+  "ui_36319fedcc83": {
+    "message": "Extracting article…"
+  },
+  "ui_bcce2b50846c": {
+    "message": "Article extraction"
+  },
+  "ui_7020562a62b2": {
+    "message": "✅ Saved Markdown: "
+  },
+  "ui_121647ff38b4": {
+    "message": "Could not save Markdown: "
+  },
+  "ui_629a187dd146": {
+    "message": "[Pagesaver] Markdown requested for URL:"
+  },
+  "ui_a8dd39a0a6cf": {
+    "message": "screens"
+  },
+  "ui_9552fe3bd366": {
+    "message": ""
+  },
+  "ui_cb747e106663": {
+    "message": "Some page resources are blocked. Rendering failed after retrying."
+  },
+  "ui_a1791229b274": {
+    "message": "Page renderer is unavailable. Refresh the page."
+  },
+  "ui_93a11c9ada3c": {
+    "message": " (startup error: "
+  },
+  "ui_cc7c29ed42be": {
+    "message": " (refresh the page and try again)"
+  },
+  "ui_0f5b9378e8e7": {
+    "message": "[pagesaver] Retrying rendering in the extension: "
+  },
+  "ui_4fea61341cb2": {
+    "message": "Page capture is unavailable. Refresh the page."
+  },
+  "ui_0fc7ef88d1a2": {
+    "message": "Could not read the page: "
+  },
+  "ui_650ecab07391": {
+    "message": "Could not contact the page renderer: "
+  },
+  "ui_126982202094": {
+    "message": "Rendering failed after retrying: "
+  },
+  "ui_ad42eb8973a6": {
+    "message": "No image canvas found."
+  },
+  "ui_464b5e833cbc": {
+    "message": "PDF saving is unavailable. Refresh the page."
+  },
+  "ui_40346d713141": {
+    "message": "Could not export the captured image."
+  },
+  "ui_97f5b973a4c9": {
+    "message": "✓ Capture this area"
+  },
+  "ui_366c4cbc6d5f": {
+    "message": " px (Enter or click to confirm)"
+  },
+  "ui_31d09fc9102e": {
+    "message": "Selected area"
+  },
+  "ui_a5f64cb282fe": {
+    "message": "Capturing and creating PDF…"
+  },
+  "ui_b14c0e5aa352": {
+    "message": "Capture failed: "
+  },
+  "ui_e469d7ff70dd": {
+    "message": "Captured: "
+  },
+  "ui_a9814b532dad": {
+    "message": " · Element selection"
+  },
+  "ui_c4fd663e126d": {
+    "message": " · Area selection"
+  },
+  "ui_b925e724dab6": {
+    "message": "✅ Created and saved: "
+  },
+  "ui_1ccd840ca8db": {
+    "message": " (includes "
+  },
+  "ui_0e12850bb95d": {
+    "message": " searchable text items)"
+  },
+  "ui_5aa2555f06fa": {
+    "message": "(PDF has not been created yet)"
+  },
+  "ui_89d72e71bfa0": {
+    "message": "Download preview"
+  },
+  "ui_c90d30aca0ed": {
+    "message": "-selection.png"
+  },
+  "ui_3fd47edce45b": {
+    "message": "Close"
+  },
+  "ui_87e7b5f5db19": {
+    "message": "Point to an element · Wheel / Q W / ↑↓ changes level · Shift+wheel scrolls · Click to confirm · Esc cancels"
+  },
+  "ui_3e63181a4dca": {
+    "message": "Drag to select an area · Enter or Capture this area to confirm · Shift+wheel scrolls · Esc cancels"
+  },
+  "ui_510969f560df": {
+    "message": "Capturing and creating PDF… Follow progress on the page."
+  },
+  "ui_cfdcd1611998": {
+    "message": "Could not create PDF: "
+  },
+  "ui_95e8617030dd": {
+    "message": " (includes "
+  },
+  "ui_742a5113cc39": {
+    "message": " (⚠️ Text could not be added; this PDF is not searchable)"
+  },
+  "ui_eabea83d2151": {
+    "message": "✅ Saved: "
+  },
+  "ui_6d399ca3b507": {
+    "message": " Text warning: "
+  },
+  "ui_7e508bc7ae1c": {
+    "message": "Page "
+  },
+  "ui_3537c06d5c06": {
+    "message": " px · Image "
+  },
+  "ui_3fd2553f2612": {
+    "message": " pixels"
+  },
+  "ui_1a4e60391c93": {
+    "message": " (about "
+  },
+  "ui_9d936f2e3725": {
+    "message": " · Total "
+  },
+  "ui_3d022a62a5a1": {
+    "message": " screens"
+  },
+  "ui_6144c57df49a": {
+    "message": " (open a regular website, not a browser page or AMO)"
+  },
+  "ui_dd4cf1c391b3": {
+    "message": "Starting selection…"
+  },
+  "ui_63b9f7d618dc": {
+    "message": "Could not start: "
+  },
+  "ui_487254360080": {
+    "message": "Saving complete HTML… Follow progress on the page."
+  },
+  "ui_dd5f3a7e1fa2": {
+    "message": " (open a regular website)"
+  },
+  "ui_fa7f288f98ad": {
+    "message": "Creating Markdown… Follow progress on the page."
+  },
+  "ui_afc9b8992aea": {
+    "message": "Choose how to save this page."
+  },
+  "ui_0451ecab35a0": {
+    "message": "Choose a save location."
+  },
+  "ui_ab9dd17bdc0a": {
+    "message": "This file type is not supported."
+  },
+  "ui_88cf49959922": {
+    "message": "Set the Markdown save location first."
+  },
+  "ui_5d123cd3a476": {
+    "message": "Enter the full folder path."
+  },
+  "ui_adc31e99edb4": {
+    "message": "Choose a vault and enter a folder within it."
+  },
+  "ui_2fb552ec7e00": {
+    "message": "Cannot connect to the save helper. Install or reinstall it."
+  },
+  "ui_76259d10ca55": {
+    "message": "The save helper timed out. Check the destination folder before retrying."
+  },
+  "ui_44f345504327": {
+    "message": "Selected vault (refresh to check)"
+  },
+  "ui_3b6b54061cd2": {
+    "message": "Choose a vault"
+  },
+  "ui_d93194542b2e": {
+    "message": "Vault unavailable. Choose another vault."
+  },
+  "ui_598a2dc0c6b9": {
+    "message": "No vaults found. Open a vault in Obsidian first."
+  },
+  "ui_520b00e114f7": {
+    "message": "Unsaved changes"
+  },
+  "ui_5be0323e8adc": {
+    "message": "Connected"
+  },
+  "ui_6503e4a9ba63": {
+    "message": "Checking save locations…"
+  },
+  "ui_1bd91a7d0c53": {
+    "message": "Saved"
+  },
+  "ui_243f0add630c": {
+    "message": "Locations changed in another tab. Reopen this page to load them."
+  },
+  "ui_571562d35bfd": {
+    "message": "Cannot read Obsidian vaults. Check access permissions."
+  },
+  "ui_ea7b6c1fd4ec": {
+    "message": "Cannot read the Obsidian vault settings."
+  },
+  "ui_aeae9f2028fa": {
+    "message": "Vault not found. Choose it again."
+  },
+  "ui_41169e64bc39": {
+    "message": "Enter a relative path within the vault."
+  },
+  "ui_ee00a31f552e": {
+    "message": "The save location must stay within the vault."
+  },
+  "ui_a2d6979ca522": {
+    "message": "The vault folder is missing or inaccessible."
+  },
+  "ui_c77065bb3beb": {
+    "message": "Cannot create the save folder. Check access permissions."
+  },
+  "ui_f471ca8f26db": {
+    "message": "Cannot access the save folder."
+  },
+  "ui_3bbaa1118587": {
+    "message": "Invalid folder path."
+  },
+  "ui_cddd77aa11f8": {
+    "message": "Folder missing or inaccessible. Check the path."
+  },
+  "ui_e6ccdc66ed80": {
+    "message": "Cannot write to this folder. Check access permissions."
+  },
+  "ui_5921e3dbde34": {
+    "message": "A save is already in progress."
+  },
+  "ui_8d76614497eb": {
+    "message": "File too large. Choose a smaller page."
+  },
+  "ui_db2f7ed3716c": {
+    "message": "Invalid file name."
+  },
+  "ui_2c7a19f4c3c7": {
+    "message": "Saving has not started."
+  },
+  "ui_7610c855bd68": {
+    "message": "File transfer incomplete. Please try again."
+  },
+  "ui_dfd525c33c1e": {
+    "message": "Could not write the file. Check free space and access permissions."
+  },
+  "ui_7608e0ed9f2a": {
+    "message": "File incomplete. Check free disk space."
+  },
+  "ui_6407613cf967": {
+    "message": "The file was not saved completely."
+  },
+  "ui_84e62af989a8": {
+    "message": "Could not finish saving. Check folder permissions and disk support for hard links."
+  },
+  "ui_4c3bfb7bf6dd": {
+    "message": "Too many files have this name. Choose another name."
+  },
+  "ui_035c57213796": {
+    "message": "This operation is not supported."
+  },
+  "ui_04741d73ac7a": {
+    "message": "Cannot read the save request."
+  },
+  "ui_df3d58c7d84b": {
+    "message": "Settings"
+  },
+  "ui_44a8051d39b7": {
+    "message": "Pagesaver Settings"
+  },
+  "ui_dfb699c54378": {
+    "message": "Settings sections"
+  },
+  "ui_766fd5605a05": {
+    "message": "Markdown settings"
+  },
+  "ui_3149d80b780e": {
+    "message": "PDF settings"
+  },
+  "ui_8d3563abf0f6": {
+    "message": "HTML settings"
+  },
+  "ui_22939a4ebb0b": {
+    "message": "Default save location"
+  },
+  "ui_88f6fc489aa1": {
+    "message": "Not configured"
+  },
+  "ui_9bedd6219651": {
+    "message": "Choose a folder"
+  },
+  "ui_6add2e4ca582": {
+    "message": "Obsidian vault"
+  },
+  "ui_a13cda8c3b96": {
+    "message": "Full folder path"
+  },
+  "ui_4b71a31a86b1": {
+    "message": "/Users/your-name/Documents/Pages"
+  },
+  "ui_89b2ecbe1f09": {
+    "message": "Vault"
+  },
+  "ui_dbf40812344e": {
+    "message": "Choose a vault registered in Obsidian on this computer."
+  },
+  "ui_d676f7fb254b": {
+    "message": "Refresh vaults"
+  },
+  "ui_5ebf371faba8": {
+    "message": "Folder within vault"
+  },
+  "ui_298a22d4130f": {
+    "message": "Leave empty to save in the vault root."
+  },
+  "ui_a95d2f1520e3": {
+    "message": "Same as Markdown / Obsidian notes"
+  },
+  "ui_368e319a3254": {
+    "message": "Save the Markdown location settings first."
+  },
+  "ui_c8550237ba70": {
+    "message": "Save settings"
+  },
+  "ui_dcd26b174153": {
+    "message": "Install the Pagesaver save helper to save to a chosen folder."
+  },
+  "ui_9fada042cf88": {
+    "message": "Check connection"
+  },
+  "ui_596e6bcf5151": {
+    "message": "Unconfigured formats use browser downloads. Duplicate names get a number; existing files are kept."
+  },
+  "ui_e665c39849c4": {
+    "message": "Full page · Single-page PDF"
+  },
+  "ui_eba488b1f92e": {
+    "message": "Full-page preview"
+  },
+  "ui_552a4dbb14c1": {
+    "message": "Save full page as PDF"
+  },
+  "ui_441208e308ed": {
+    "message": "Save part of a page · Skip floating overlays"
+  },
+  "ui_9f81db4cf6c9": {
+    "message": "① Select an element"
+  },
+  "ui_32a74192876b": {
+    "message": "② Select an area"
+  },
+  "ui_42b5c5503d93": {
+    "message": "Page archive · One HTML file"
+  },
+  "ui_76636b1f4949": {
+    "message": "Article archive · One Markdown file"
+  },
+  "ui_5369f327c84a": {
+    "message": "Save as Markdown"
+  },
+  "ui_4cb5010a492a": {
+    "message": "Choose save locations in Settings."
+  },
+  "ui_09854e9a45b0": {
+    "message": "① Point to content to select an element. Use the wheel / Q W to change its size, then click to confirm."
+  },
+  "ui_0e06865148a9": {
+    "message": "② Drag to select an area. Press Enter or click Capture this area to confirm."
+  },
+  "ui_6bb2d502639a": {
+    "message": "The selected area is saved as a single-page PDF."
+  },
+  "ui_cf170c465eba": {
+    "message": "Embed the page, images, fonts and styles in one .html file. Open it offline with a double-click."
+  },
+  "ui_2dbe176cdaef": {
+    "message": "Follow progress on the page. The file is saved when ready."
+  },
+  "ui_43452f114576": {
+    "message": "Save the article as .md, without navigation, ads or footers. Read it offline in any Markdown editor."
+  },
+  "ui_c091262530cb": {
+    "message": "Save pages as PDF, complete HTML or Markdown, with separate save locations."
+  },
+  "ui_a3c40646b7e6": {
+    "message": "Pagesaver · Save page"
+  },
+  "ui_97f0b251ced8": {
+    "message": "The save helper is not connected. Follow the installation steps below."
+  },
+  "ui_61a869d1043d": {
+    "message": "Install the save helper once on each computer, including when you switch computers."
+  },
+  "ui_50091943a205": {
+    "message": "Download and unzip the complete installation package."
+  },
+  "ui_f980e04c48e8": {
+    "message": "On Mac, double-click “安装保存工具.command” (Install save helper)."
+  },
+  "ui_74e02c704590": {
+    "message": "Return here, click Check connection, then Refresh vaults."
+  },
+  "ui_f30d56ed84ea": {
+    "message": "The helper writes pages to local folders. It does not upload them to a cloud service."
+  },
+  "ui_bef61679d4fa": {
+    "message": "Show installation steps"
+  },
+  "ui_57c63553cdd6": {
+    "message": "Browser downloads (no helper needed)"
+  },
+  "ui_8e8fc0f5d52f": {
+    "message": "Send to Obsidian (no helper needed)"
+  },
+  "ui_a78debf1dc61": {
+    "message": "Choose a folder (helper required)"
+  },
+  "ui_60ba61565ef8": {
+    "message": "Obsidian folder (helper required)"
+  },
+  "ui_ead507424738": {
+    "message": "Vault name"
+  },
+  "ui_a0980afff74b": {
+    "message": "Use the exact name shown in Obsidian, or leave empty for the current vault."
+  },
+  "ui_4652571e98bb": {
+    "message": "Saving copies the article to the clipboard and opens Obsidian. Check Obsidian to confirm the result."
+  },
+  "ui_fff3a1f3954a": {
+    "message": "The helper is only needed for chosen local folders or following their location."
+  },
+  "ui_8a5ecc05deed": {
+    "message": "Save a Markdown location first. To follow Send to Obsidian, enter a vault name."
+  },
+  "ui_648e42318c16": {
+    "message": "Enter a vault name so PDF/HTML can follow it."
+  },
+  "ui_ecff1a1ff276": {
+    "message": "Several vaults have this name. Choose a specific folder instead."
+  },
+  "ui_cb511d888d6f": {
+    "message": "Could not copy the article. Use browser downloads instead."
+  },
+  "ui_0af815f36da7": {
+    "message": "Sent to Obsidian. Check Obsidian to confirm."
+  },
+  "ui_c34bb62fd90c": {
+    "message": "Vault names cannot contain line breaks."
+  },
+  "ui_e493bdaf0a89": {
+    "message": "Download save helper for Mac"
+  },
+  "ui_0bb8d07c4719": {
+    "message": "For Apple silicon and Intel Macs. Install once on each computer."
+  },
+  "ui_eaa32649a763": {
+    "message": "Click the button above to download, then unzip the package."
+  }
+}
