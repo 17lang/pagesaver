@@ -4,6 +4,7 @@
 // 渲染统一走 window.joppRender.toCanvas —— 它带"失败自动降级重试"（去掉 iframe/video/canvas、不嵌字体再试一次），
 // 因为页面里常有跨域图片/iframe 会让 html-to-image 直接抛错（它抛的是 Event 对象，不是 Error）。
 (function () {
+  if (window.joppNativeCapture) return;
   const MARK = 'data-jopp-picker-ui';   // 扩展自己的 UI 节点标记（隐藏浮层时要跳过它们）
 
   // 量出整页完整尺寸（含滚动溢出部分）
@@ -116,7 +117,12 @@
       dpr: window.devicePixelRatio || 1,
       scrollX: window.scrollX,
       scrollY: window.scrollY,
-      hiddenCount: hidden.length
+      hiddenCount: hidden.length,
+      fullFrameUrl: Array.from(document.querySelectorAll('iframe')).filter(function (el) {
+        const r = el.getBoundingClientRect();
+        return r.x >= -2 && r.y >= -2 && r.x <= 2 && r.y <= 2 &&
+          r.width >= innerWidth - 4 && r.height >= innerHeight - 4;
+      }).map(function (el) { return el.src; })[0] || null
     };
   }
 
@@ -143,6 +149,8 @@
     unlockScrollBehavior();
     return { ok: true };
   }
+
+  window.joppNativeCapture = { prepare: capPrepare, scrollTo: capScrollTo, restore: capRestore };
 
   browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     // 统一的"全屏置灰 + 进度条"遮罩（截图瞬间会被临时隐藏，避免被拍进 PDF）

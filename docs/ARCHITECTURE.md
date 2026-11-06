@@ -1,6 +1,6 @@
 # Pagesaver 实现说明
 
-修订：2；适用版本：0.7.0；日期：2026-11-06。
+修订：3；适用版本：0.7.1；日期：2026-11-06。
 
 ## 保存与界面
 
@@ -52,3 +52,16 @@
 options/filename-rules.js 提供纯命名规则。content/page-metadata.js 从文章元数据、JSON-LD 和公众号字段提取发布日期。background.saveFile 在读取同一份目录/命名配置后构建最终名称，供 downloads、Native Messaging、Obsidian 三条路线共用，覆盖整页与选区 PDF。关闭后使用原先文件名构建方式。
 
 配置 normalize 对旧数据补 naming 默认值，设置保存只对发生变化的原生目录检查写入，避免只改命名仍要求连接旧目录的保存工具。命名规则、日期回退差异与验证入口详见 [自动规范文件名](FILENAME-RULES.md)。
+
+
+## 内嵌页面整页截图与设置图标
+
+0.7.1 修复：若外层文档不滚动，且唯一可匹配的 iframe 从窗口左上角铺满视口，整页 PDF 使用同一套截图协议滚动其内部文档。通过现有 `<all_urls>` 权限与 `tabs.executeScript(allFrames)` 进入跨域 frame，不新增权限、不下载或改写正文。普通页面、部分窗口 iframe 和手动选区保留原路径。不会打开折叠内容或点击链接。
+
+`content/capture.js` 公开隔离世界内的 `joppNativeCapture`，防止重复注入；测量全屏 iframe 地址，准备、滚动及恢复沿用原实现。`background.js#captureAndStitch` 只在唯一匹配且内部更长时切换；所有滚动截图完成或报错后恢复 frame 和外层的滚动位置、样式及浮层。不能访问的 frame 仍保留外层截图行为，不宣称其隐藏部分已捕获。当前只支持一级全屏 iframe，不泛化为任意嵌套滚动面板。此路线不新增内嵌文档的 PDF 文字层；画面完整与可搜索文字分别验证。
+
+齿轮修复：`popup/popup.html` 的 SVG circle/path 使用显式闭合标签，并保持 `viewBox` 大小写。此前 HTML 本地化过程使 path 嵌入 circle，实际只显示中心圆；浏览器定向检查覆盖 path 是 svg 直接子节点、实际外圈宽度、设置名称、右上角位置与点击打开设置。
+
+回归入口：`tools/test-zen-frames.py`（通过 `tools/run-zen-verification.py` 启动隔离浏览器），跨源 2400px 四色页面完整保存、多屏截图后恢复原滚动位置。普通保存回归见 `tools/test-zen.py`；本轮结果见 [验证](VERIFICATION.md#071-内嵌页面与齿轮修复)。
+
+本轮 Node 规则检查共 15 项通过；普通保存浏览器回归 20 项及新增内嵌页面 2 项通过，另完成齿轮渲染和点击检查。

@@ -178,7 +178,41 @@ function reportProgress(tabId, done, total) {
 //   - 选区在当前视口内 → 一次都不用滚（这是框选/选取框架的绝大多数情况）
 //   - 否则只覆盖选区那几屏，不再从 y=0 扫到整页底部
 async function captureAndStitch(tabId, windowId, cropRect) {
-  var meta = await browser.tabs.sendMessage(tabId, { type: 'CAP_PREPARE' });
+  // A full-window cross-origin iframe can contain the whole article while the outer
+  // document never scrolls. Run the same capture protocol inside that frame only.
+  var captureUrl = null;
+  async function captureCommand(method, value) {
+    if (!captureUrl) {
+      var types = { prepare: 'CAP_PREPARE', scrollTo: 'CAP_SCROLL_TO', restore: 'CAP_RESTORE' };
+      return browser.tabs.sendMessage(tabId, { type: types[method], y: value }, { frameId: 0 });
+    }
+    var results = await browser.tabs.executeScript(tabId, {
+      allFrames: true,
+      code: '(function(){if(location.href !== ' + JSON.stringify(captureUrl) +
+        ' || !window.joppNativeCapture)return null;return window.joppNativeCapture[' +
+        JSON.stringify(method) + '](' + JSON.stringify(value === undefined ? null : value) + ');})()'
+    });
+    return results.filter(function (r) { return r; })[0];
+  }
+  var meta = await captureCommand('prepare');
+  if (!cropRect && meta && meta.fullFrameUrl && meta.height <= meta.viewportHeight + 4) {
+    try {
+      await browser.tabs.executeScript(tabId, { file: 'content/capture.js', allFrames: true });
+      var probes = await browser.tabs.executeScript(tabId, { allFrames: true,
+        code: 'location.href === ' + JSON.stringify(meta.fullFrameUrl) +
+          ' ? {height:Math.max(document.body.scrollHeight,document.documentElement.scrollHeight),viewport:innerHeight} : null' });
+      var matches = probes.filter(function (r) { return r; });
+      if (matches.length === 1 && matches[0].height > matches[0].viewport + 4) {
+        captureUrl = meta.fullFrameUrl;
+        var frameMeta = await captureCommand('prepare');
+        if (!frameMeta || !frameMeta.ok) throw new Error('Frame not ready');
+        meta = frameMeta;
+      }
+    } catch (e) {
+      if (captureUrl) { try { await captureCommand('restore'); } catch (_) {} }
+      captureUrl = null;
+    }
+  }
   if (!meta || !meta.ok) {
     throw new Error(PageSaverI18n.t('ui_8cf56435ee6a') + ((meta && meta.error) || PageSaverI18n.t('ui_a1a9da9ee6ed')));
   }
@@ -231,7 +265,7 @@ async function captureAndStitch(tabId, windowId, cropRect) {
     await overlayMsg(tabId, { visible: false });
 
     for (var i = 0; i < targets.length; i++) {
-      var r = await browser.tabs.sendMessage(tabId, { type: 'CAP_SCROLL_TO', y: targets[i] });
+      var r = await captureCommand('scrollTo', targets[i]);
       var actualY = (r && typeof r.y === 'number') ? r.y : targets[i];
       // 已经在正确位置（零滚动那条路）就不用等太久；但不能是 0 ——
       // 遮罩刚切成 hidden，要留一帧让画面重绘，否则遮罩可能被拍进 PDF。
@@ -244,7 +278,10 @@ async function captureAndStitch(tabId, windowId, cropRect) {
     await overlayMsg(tabId, {
       visible: true, text: PageSaverI18n.t('ui_3f69f99839ae'), done: targets.length, total: targets.length
     });
-    try { await browser.tabs.sendMessage(tabId, { type: 'CAP_RESTORE' }); } catch (e) { /* 尽力还原 */ }
+    try { await captureCommand('restore'); } catch (e) { /* 尽力还原 */ }
+    if (captureUrl) {
+      try { await browser.tabs.sendMessage(tabId, { type: 'CAP_RESTORE' }, { frameId: 0 }); } catch (e) {}
+    }
   }
 
   if (!shots.length) throw new Error(PageSaverI18n.t('ui_61ac7c83a2ca'));

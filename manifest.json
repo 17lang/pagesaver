@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Pagesaver",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "__MSG_ui_c091262530cb__",
   "permissions": [
     "tabs",
