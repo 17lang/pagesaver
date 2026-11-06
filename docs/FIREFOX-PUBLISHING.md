@@ -1,7 +1,7 @@
 # Firefox 市场发布准备
 
-修订：1；核对日期：2026-11-03；候选：0.6.0。
-状态：准备中，尚未提交 AMO；不代表 Mozilla 审核或签名通过。
+修订：3；核对日期：2026-11-06；候选：0.7.1。
+状态：0.7.1 已提交 AMO，当前“等待审核”；尚未确认正式上架或取得签名安装包。
 
 ## Owner 需要提供或完成
 
@@ -45,7 +45,7 @@ Save full pages or selected areas as single-page PDFs, archive pages with images
 
 **Privacy:** https://github.com/17lang/pagesaver/blob/main/PRIVACY.md
 
-**Version notes:** Automatic Chinese/English UI; download-first setup; save-only Obsidian Clipper clipboard/URI handoff; advanced local locations retained. No Clipper highlighter or reader modules.
+**Version notes:** Automatic filename cleanup, date-first/date-last choices; complete full-window iframe PDF capture; restored settings gear. Chinese/English UI and download-first setup retained. No Clipper highlighter or reader modules.
 
 ## 审核操作说明 / Notes for reviewers
 
@@ -81,3 +81,29 @@ Save full pages or selected areas as single-page PDFs, archive pages with images
 | API key/secret | 手动首次提交不需要；自动提交时才需要 |
 
 完成网页提交后，由 Mozilla 决定审核与签名。不能把“源码已公开”“本地验证无错误”写成“市场已发布”。
+
+
+## 2026-11-06 提交材料核对
+
+候选为 0.7.1，源码公开提交 4b9f663。XPI 与对应 AMO 源码包已准备，后者附有 AMO-REVIEW.md：Python 3.9+ 标准库打包命令、安装包 SHA256、第三方固定版本原件及可读源码链接、权限和本机应用说明、功能验证步骤。无需 npm 或 Go 即可重建扩展；Go 仅用于可选本机工具。
+
+对应源码包实测重建 XPI 逐字节一致。现有第三方原件本地 SHA256 全部与 provenance.json 一致。最终运行包预检为 0 errors、10 warnings；警告和额外应用依赖已在审核说明中如实列出，不代表 AMO 审核结论。
+
+官方要求于本日重新核对：提交包与源码上限分别 200 MB；每版附匹配源码及可重复步骤；第三方使用固定发布版原件和可读源码链接；桌面 Firefox 140+ 支持现行内置数据声明。不提交 Android。商品信息按英文和简体中文准备，公开作者暂按 17lang；登录后需核对账号实际资料。
+
+当前仍等待 Mozilla 登录；未上传、未提交、未签名。材料准备或 GitHub release 不替代这些状态。
+
+本次补测官方 Firefox 159.0.1 macOS：4 项无工具首次使用、20 项保存回归、2 项内嵌页面检查通过；英文界面使用对应英文词条断言。材料目录保留真实结果，不将临时安装的测试浏览器当成正式 AMO 签名安装验证。
+
+
+## 本次实际提交结果
+
+2026-11-06，公开作者为 17lang，0.7.1 已完成服务端校验及提交：0 错误、10 警告。只选择桌面 Firefox；最低 140，未启用 Android。此前等待登录和两步验证的记录为本次提交前状态，现已由 Owner 完成。
+
+- 市场地址：https://addons.mozilla.org/firefox/addon/pagesaver-17lang/ （审核前可能仅作者可见）。默认短网址已占用，采用 pagesaver-17lang，显示名称不变。
+- 版本管理：https://addons.mozilla.org/developers/addon/pagesaver-17lang/versions/6671659 。版本 ID 6671659，文件 ID 5215753。
+- 服务端校验报告：https://addons.mozilla.org/zh-CN/developers/upload/eb262ac2d0e2431e9079854d03914624 。
+- 已附对应源码包、复现命令、第三方固定原件/源码链接和哈希、10 条警告上下文核查；审核备注限 3000 字符，使用 2429 字符摘要，完整说明放源码附件 AMO-REVIEW.md 与 docs/VALIDATOR-REVIEW.md。
+- 已保存下载管理分类、中英双语介绍和隐私说明、GitHub Issues 支持入口、AGPL-3.0-or-later、图标、4 张中英文截图及版本说明。不公开个人支持邮箱。
+
+警告分类：1 项 Android 兼容提示（不申请 Android）；6 项官方库 HTML 解析赋值；2 项 fontkit 的旧环境 bind 后备构造器及 eval 引用；1 项 SingleFile 可选压缩 codecURI 动态 import。保留官方第三方代码，未增加 unsafe-eval、未放宽 CSP、未移除数据声明。说明是静态上下文分析，不等于完整安全审计或 Mozilla 批准。只有收到后续审核/签名回执才能更新为“已上架”。
