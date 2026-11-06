@@ -79,11 +79,11 @@ server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Page)
 threading.Thread(target=server.serve_forever, daemon=True).start()
 try:
     time.sleep(.5)
-    promise('w.browser.storage.local.remove("pagesaverDestinations")')
+    promise('w.browser.storage.local.set({pagesaverDestinations:{naming:{enabled:false}}})')
     m.navigate(url); time.sleep(.5)
     assert js('return document.querySelector("#pdf-mode option[value=markdown]").disabled')
     assert js('return document.querySelector("#html-mode option[value=markdown]").disabled')
-    assert js('return [...document.querySelectorAll("#sidebar li")].map(e=>e.dataset.section)') == ['markdown', 'pdf', 'html']
+    assert js('return [...document.querySelectorAll("#sidebar li")].map(e=>e.dataset.section)') == ['naming', 'markdown', 'pdf', 'html']
     record('initial gating and save-only navigation', 'Both follow choices disabled; only Markdown, PDF, HTML sections')
     ping = promise('w.PageSaverNative.call({action:"ping"})')
     assert ping['version'] == '0.5.0'

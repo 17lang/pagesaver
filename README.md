@@ -60,3 +60,7 @@ For the macOS universal package, use `tools/build-release.py` with Go and macOS 
 Pagesaver is distributed under **AGPL-3.0-or-later**, including its own source. Third-party components retain their licenses. See [LICENSE](LICENSE), [third-party notices](THIRD_PARTY_NOTICES.md) and [Obsidian Clipper reuse details](options/UPSTREAM.md).
 
 Support and bug reports: GitHub Issues in this repository. Do not include private page content, vault paths or credentials in a public report.
+
+## Automatic file names
+
+File naming is enabled by default. Files use the publication date followed by the full cleaned title. Spaces, punctuation and emoji become hyphens, while letters, numbers and dots are kept. If no publication date is available, the local save date is used. Settings → File naming can put the date last or disable this feature. See [filename rules](docs/FILENAME-RULES.md).

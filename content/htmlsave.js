@@ -541,7 +541,7 @@
       let savedName = filename;
       try {
         const res = await withTimeout(
-          browser.runtime.sendMessage({ type: 'HTML_SAVE', html: cleaned, title: (pageData && pageData.title) || document.title }),
+          browser.runtime.sendMessage({ type: 'HTML_SAVE', html: cleaned, title: (pageData && pageData.title) || document.title, publishedDate: PageSaverPageMetadata.readPublishedDate() }),
           180000, PageSaverI18n.t('ui_e2bc64d8b9d7')
         );
         if (res && res.ok) { saved = true; savedName = res.path || res.filename || filename; }
@@ -621,7 +621,7 @@
       let savedName = filename;
       try {
         const res = await withTimeout(
-          browser.runtime.sendMessage({ type: 'MARKDOWN_SAVE', markdown: md, title }),
+          browser.runtime.sendMessage({ type: 'MARKDOWN_SAVE', markdown: md, title, publishedDate: PageSaverPageMetadata.readPublishedDate() || result.published }),
           180000, PageSaverI18n.t('ui_e2bc64d8b9d7')
         );
         if (res && res.ok) { saved = true; handedOff = !!res.handedOff; savedName = res.path || res.filename || filename; }

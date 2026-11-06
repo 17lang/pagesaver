@@ -283,3 +283,6 @@ option:disabled { color: #888; }
 }
 
 .helper-download { display: inline-block; padding: 8px 14px; border-radius: 6px; text-decoration: none; }
+
+.naming-toggle { display: flex; align-items: center; gap: 8px; }
+.naming-toggle input { display: inline-block; width: auto; margin: 0; }

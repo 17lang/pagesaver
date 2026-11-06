@@ -1,6 +1,6 @@
 # Pagesaver 实现说明
 
-修订：1；适用版本：0.6.0；日期：2026-11-03。
+修订：2；适用版本：0.7.0；日期：2026-11-06。
 
 ## 保存与界面
 
@@ -46,3 +46,9 @@
 ## 发布前检查
 
 0.6.0 运行包通过 web-ext 预检：0 错误、10 条警告。警告涉及桌面与 Android 数据声明版本差异、原样第三方库的 innerHTML / import / eval；Android 不在申报范围，第三方原件和来源可由 Mozilla 审核。未放宽 CSP 或启用 unsafe-eval。两次固定打包结果逐字节一致。
+
+## 自动规范命名
+
+options/filename-rules.js 提供纯命名规则。content/page-metadata.js 从文章元数据、JSON-LD 和公众号字段提取发布日期。background.saveFile 在读取同一份目录/命名配置后构建最终名称，供 downloads、Native Messaging、Obsidian 三条路线共用，覆盖整页与选区 PDF。关闭后使用原先文件名构建方式。
+
+配置 normalize 对旧数据补 naming 默认值，设置保存只对发生变化的原生目录检查写入，避免只改命名仍要求连接旧目录的保存工具。命名规则、日期回退差异与验证入口详见 [自动规范文件名](FILENAME-RULES.md)。

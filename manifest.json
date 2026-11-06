@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Pagesaver",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "__MSG_ui_c091262530cb__",
   "permissions": [
     "tabs",
@@ -16,6 +16,7 @@
   "background": {
     "scripts": [
       "i18n.js",
+      "options/filename-rules.js",
       "lib/pdf-lib.min.js",
       "lib/fontkit.umd.min.js",
       "lib/html-to-image.iife.js",
@@ -33,6 +34,8 @@
       ],
       "js": [
         "i18n.js",
+        "options/filename-rules.js",
+        "content/page-metadata.js",
         "content/00-boot.js",
         "lib/html-to-image.iife.js",
         "content/overlay.js",

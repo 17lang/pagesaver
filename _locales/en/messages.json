@@ -393,7 +393,7 @@
     "message": "Saved"
   },
   "ui_243f0add630c": {
-    "message": "Locations changed in another tab. Reopen this page to load them."
+    "message": "Settings changed in another tab. Reopen this page to load them."
   },
   "ui_571562d35bfd": {
     "message": "Cannot read Obsidian vaults. Check access permissions."
@@ -658,5 +658,26 @@
   },
   "ui_eaa32649a763": {
     "message": "Click the button above to download, then unzip the package."
+  },
+  "ui_3df3f90a5922": {
+    "message": "File naming"
+  },
+  "ui_ca3a524101ef": {
+    "message": "Normalize file names automatically"
+  },
+  "ui_491d9ac77775": {
+    "message": "Date position"
+  },
+  "ui_b6ebbf09f3d2": {
+    "message": "Date first"
+  },
+  "ui_82819a80a529": {
+    "message": "Date last"
+  },
+  "ui_3ce984b8b9ff": {
+    "message": "Replace spaces, punctuation and emoji with hyphens. Keep letters, numbers and dots. Use the publication date, or today if unavailable. Keep full titles."
+  },
+  "ui_9ff85f8b2732": {
+    "message": "Applies to PDF, HTML and Markdown. Keep an existing date without adding another."
   }
 }

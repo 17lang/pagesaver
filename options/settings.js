@@ -8,6 +8,7 @@
   const status = $('settings-status');
   function readForm() {
     return D.normalize({
+      naming: { enabled: $('normalize-filenames').checked, datePosition: $('filename-date-position').value },
       pdf: { mode: $('pdf-mode').value, path: $('pdf-path').value },
       html: { mode: $('html-mode').value, path: $('html-path').value },
       markdown: { mode: $('markdown-mode').value, path: $('markdown-path').value,
@@ -16,6 +17,7 @@
   }
   function display() {
     const draft = readForm();
+    $('naming-date-options').hidden = !draft.naming.enabled;
     // Follow becomes available only after a valid Markdown location is saved.
     const ready = D.markdownReady(persisted);
     for (const kind of ['pdf', 'html']) {
@@ -31,6 +33,8 @@
       !['pdf','html'].some(kind => ['absolute','markdown'].includes(draft[kind].mode));
   }
   function populate(settings) {
+    $('normalize-filenames').checked = settings.naming.enabled;
+    $('filename-date-position').value = settings.naming.datePosition;
     for (const kind of ['pdf', 'html', 'markdown']) {
       $(kind + '-mode').value = settings[kind].mode;
       $(kind + '-path').value = settings[kind].path;
@@ -82,7 +86,9 @@
       const draft = readForm(); controls.forEach(c => { c.disabled = true; }); status.textContent = PageSaverI18n.t('ui_6503e4a9ba63');
       for (const kind of ['markdown', 'pdf', 'html']) {
         const target = D.target(draft, kind);
-        if (target && !(kind === 'markdown' && target.mode === 'obsidian')) {
+        const unchanged = JSON.stringify(draft[kind]) === JSON.stringify(persisted[kind]) &&
+          (draft[kind].mode !== 'markdown' || JSON.stringify(draft.markdown) === JSON.stringify(persisted.markdown));
+        if (target && !unchanged && !(kind === 'markdown' && target.mode === 'obsidian')) {
           const nativeTarget = await PageSaverObsidian.nativeTarget(target);
           await N.call({ action: 'check', target: nativeTarget });
         }

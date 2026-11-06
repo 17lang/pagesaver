@@ -221,7 +221,14 @@
   "仓库名称不能包含换行。": "ui_c34bb62fd90c",
   "下载 Mac 保存工具": "ui_e493bdaf0a89",
   "适用于 Apple 芯片和 Intel Mac。每台电脑只需安装一次。": "ui_0bb8d07c4719",
-  "点击上方按钮下载，解压安装包。": "ui_eaa32649a763"
+  "点击上方按钮下载，解压安装包。": "ui_eaa32649a763",
+  "文件命名": "ui_3df3f90a5922",
+  "自动规范文件名": "ui_ca3a524101ef",
+  "日期位置": "ui_491d9ac77775",
+  "时间在前": "ui_b6ebbf09f3d2",
+  "时间在后": "ui_82819a80a529",
+  "空格、标点和表情统一为短横线；保留文字、数字和英文句点。优先使用文章发布日期，取不到用当天日期，长标题保持完整。": "ui_3ce984b8b9ff",
+  "适用于 PDF、HTML 和 Markdown。标题已有日期时保留，不重复添加。": "ui_9ff85f8b2732"
 };
   function t(key) { return browser.i18n.getMessage(key); }
   function source(text) { return sourceKeys[text] ? t(sourceKeys[text]) : text; }

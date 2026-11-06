@@ -3,7 +3,7 @@
  * Only save-location sections are retained. */
 (function () {
   'use strict';
-  const allowed = ['markdown', 'pdf', 'html'];
+  const allowed = ['naming', 'markdown', 'pdf', 'html'];
   function showSettingsSection(section) {
     if (!allowed.includes(section)) section = 'markdown';
     document.querySelectorAll('.settings-section').forEach(s => s.classList.remove('active'));

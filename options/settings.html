@@ -12,6 +12,7 @@
     <nav id="sidebar" class="sidebar" aria-label="设置分类" data-i18n-aria-label="ui_dfb699c54378">
       <div id="settings-sidebar-title"><img src="../icons/icon32.png" alt="">Pagesaver</div>
       <ul>
+        <li data-section="naming"><button type="button">文件命名</button></li>
         <li data-section="markdown"><button type="button">Markdown 设置</button></li>
         <li data-section="pdf"><button type="button">PDF 设置</button></li>
         <li data-section="html"><button type="button">HTML 设置</button></li>
@@ -19,6 +20,18 @@
     </nav>
     <main id="content">
       <form id="save-settings-form">
+        <section id="naming-section" class="settings-section">
+          <div class="settings-section-header"><h1>文件命名</h1></div>
+          <div class="setting-items">
+            <label class="naming-toggle" for="normalize-filenames"><input id="normalize-filenames" type="checkbox" checked> <span>自动规范文件名</span></label>
+            <p class="setting-item-description">空格、标点和表情统一为短横线；保留文字、数字和英文句点。优先使用文章发布日期，取不到用当天日期，长标题保持完整。</p>
+            <div id="naming-date-options">
+              <label for="filename-date-position">日期位置</label>
+              <select id="filename-date-position"><option value="before">时间在前</option><option value="after">时间在后</option></select>
+              <p class="setting-item-description">适用于 PDF、HTML 和 Markdown。标题已有日期时保留，不重复添加。</p>
+            </div>
+          </div>
+        </section>
         <section id="markdown-section" class="settings-section">
           <div class="settings-section-header"><h1>Markdown 设置</h1></div>
           <div class="setting-items">

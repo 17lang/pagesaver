@@ -441,9 +441,19 @@ function safeFileName(name) {
   return Array.from(s || 'page').slice(0, 80).join('');
 }
 
+async function publicationMetadata(tabId, publishedDate) {
+  if (PageSaverNaming.normalizeDate(publishedDate)) return { publishedDate };
+  try { return await browser.tabs.sendMessage(tabId, { type: 'PAGESAVER_PAGE_METADATA' }) || {}; }
+  catch (error) { return {}; }
+}
+
 // One destination resolver and one writer for all three formats.
-async function saveFile(blob, filename, kind) {
+async function saveFile(blob, filename, kind, metadata = {}) {
   const settings = await PageSaverDestinations.load();
+  if (settings.naming.enabled) {
+    filename = PageSaverNaming.buildFileName(metadata.title || filename.replace(/\.[^.]+$/, ''),
+      metadata.publishedDate, kind === 'markdown' ? 'md' : kind, settings.naming);
+  }
   const target = PageSaverDestinations.target(settings, kind);
   if (target && kind === 'markdown' && target.mode === 'obsidian') return PageSaverObsidian.save(blob, filename, target);
   if (target) return PageSaverNative.save(blob, filename, await PageSaverObsidian.nativeTarget(target));
@@ -455,8 +465,8 @@ async function saveFile(blob, filename, kind) {
     setTimeout(() => { try { URL.revokeObjectURL(url); } catch (e) {} }, 60000);
   }
 }
-async function savePdf(bytes, filename) {
-  return saveFile(new Blob([bytes], { type: 'application/pdf' }), filename, 'pdf');
+async function savePdf(bytes, filename, metadata) {
+  return saveFile(new Blob([bytes], { type: 'application/pdf' }), filename, 'pdf', metadata);
 }
 
 // ---------- M8：完整 HTML 文件保存（对标 SingleFile，自研实现）----------
@@ -543,11 +553,11 @@ async function fetchAsDataUri(url) {
   return { ok: true, dataUri: dataUri, text: text, mime: mime };
 }
 
-async function saveHtmlFile(text, filename) {
-  return saveFile(new Blob([text], { type: 'text/html;charset=utf-8' }), filename, 'html');
+async function saveHtmlFile(text, filename, metadata) {
+  return saveFile(new Blob([text], { type: 'text/html;charset=utf-8' }), filename, 'html', metadata);
 }
-async function saveTextFile(text, filename) {
-  return saveFile(new Blob([text], { type: 'text/markdown;charset=utf-8' }), filename, 'markdown');
+async function saveTextFile(text, filename, metadata) {
+  return saveFile(new Blob([text], { type: 'text/markdown;charset=utf-8' }), filename, 'markdown', metadata);
 }
 
 // ---------- SingleFile 内核的后台代抓（页面内 fetch 失败时的兜底）----------
@@ -769,7 +779,8 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       const tabs = await browser.tabs.query({ active: true, currentWindow: true });
       const title = msg.title || (tabs[0] && tabs[0].title) || 'page';
       const filename = safeFileName(title) + PageSaverI18n.t('ui_8e626b043164');
-      const saved = await saveHtmlFile(msg.html || '', filename);
+      const metadata = await publicationMetadata(sender.tab ? sender.tab.id : (tabs[0] && tabs[0].id), msg.publishedDate);
+      const saved = await saveHtmlFile(msg.html || '', filename, { ...metadata, title });
       return { ok: true, filename: saved.filename, path: saved.path, handedOff: !!saved.handedOff };
     })()
       .then((r) => sendResponse(r))
@@ -783,7 +794,8 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       const tabs = await browser.tabs.query({ active: true, currentWindow: true });
       const title = msg.title || (tabs[0] && tabs[0].title) || 'page';
       const filename = safeFileName(title) + '.md';
-      const saved = await saveTextFile(msg.markdown || '', filename);
+      const metadata = await publicationMetadata(sender.tab ? sender.tab.id : (tabs[0] && tabs[0].id), msg.publishedDate);
+      const saved = await saveTextFile(msg.markdown || '', filename, { ...metadata, title });
       return { ok: true, filename: saved.filename, path: saved.path, handedOff: !!saved.handedOff };
     })()
       .then((r) => sendResponse(r))
@@ -811,6 +823,7 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       const tabs = await browser.tabs.query({ active: true, currentWindow: true });
       if (!tabs || !tabs.length) throw new Error(PageSaverI18n.t('ui_251e122b014d'));
       const tab = tabs[0];
+      const metadata = await publicationMetadata(tab.id, msg.publishedDate);
       const crop = (msg.type === 'CAPTURE_RECT_PDF' && msg.rect) ? msg.rect : null;
 
       // 统一交互：一上来就全屏置灰 + 进度条，用户看不到后面的滚动
@@ -854,7 +867,7 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
           slices, stitched.cssWidth, stitched.cssHeight, stitched.ratio, rects
         );
         const filename = safeFileName(msg.title || tab.title) + PageSaverI18n.t('ui_956ed149ef11');
-        const saved = await savePdf(built.bytes, filename);
+        const saved = await savePdf(built.bytes, filename, { ...metadata, title: msg.title || tab.title });
 
         return {
           ok: true,
@@ -898,9 +911,10 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         [{ bytes: bytes, mime: 'image/png', topPx: 0, heightPx: p.height || 1 }],
         p.width || 1, p.height || 1, 1, null
       )
-      .then((built) => {
+      .then(async (built) => {
+        const metadata = await publicationMetadata(sender.tab && sender.tab.id, p.publishedDate);
         const filename = safeFileName(p.title) + PageSaverI18n.t('ui_956ed149ef11');
-        return savePdf(built.bytes, filename).then(saved => saved.path || saved.filename);
+        return savePdf(built.bytes, filename, { ...metadata, title: p.title }).then(saved => saved.path || saved.filename);
       })
       .then((filename) => sendResponse({ ok: true, saved: true, filename: filename }))
       .catch((e) => sendResponse({ ok: false, error: String(e && e.message ? e.message : e) }));

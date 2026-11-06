@@ -4,11 +4,12 @@
   const KEY = 'pagesaverDestinations';
   function defaults() {
     return { pdf: { mode: 'default', path: '' }, html: { mode: 'default', path: '' },
-      markdown: { mode: 'default', path: '', vault: '', vaultName: '', relativePath: '' } };
+      markdown: { mode: 'default', path: '', vault: '', vaultName: '', relativePath: '' },
+      naming: { enabled: true, datePosition: 'before' } };
   }
   function normalize(input) {
     const out = defaults();
-    for (const kind of Object.keys(out)) {
+    for (const kind of ['pdf', 'html', 'markdown']) {
       const v = input && input[kind];
       if (!v) continue;
       const modes = kind === 'markdown' ? ['default', 'absolute', 'vault', 'obsidian'] : ['default', 'absolute', 'markdown'];
@@ -18,6 +19,9 @@
         if (field !== 'mode') out[kind][field] = String(v[field] || '').trim();
       }
     }
+    const naming = input && input.naming;
+    out.naming.enabled = !naming || naming.enabled !== false;
+    out.naming.datePosition = naming && naming.datePosition === 'after' ? 'after' : 'before';
     return out;
   }
   function absolute(path) {
